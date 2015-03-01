@@ -6,7 +6,11 @@ namespace ProgrammingAssignment1
 	{
 		public static void Main (string[] args)
 		{
-			Console.WriteLine ("Hello World!");
+			Console.WriteLine ("This Application will calculate the max height of a shell and the distance it travels across the ground");
+			Console.WriteLine ("What angle did you launch the shell?");
+			float theta = float.Parse (Console.ReadLine ());
+			Console.WriteLine("How fast did you launch the shell?");
+			float speed = float.Parse (Console.ReadLine ());
 		}
 	}
 }
