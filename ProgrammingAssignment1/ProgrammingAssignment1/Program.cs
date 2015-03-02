@@ -17,7 +17,7 @@ namespace ProgrammingAssignment1
 			double t = voy / g;
 			double height = voy * voy / (2 * g);
 			double dx = vox * 2 * t;    
-			Console.WriteLine("Height of Shell at apex is:" + Math.Round(height,2) +". Distance Shell Traveled is:" + Math.Round(dx,2));
+			Console.WriteLine("Height of Shell at apex is:" + Math.Round(height,3) +". Distance Shell Traveled is:" + Math.Round(dx,3));
 
 		}
 	}
