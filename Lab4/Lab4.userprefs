@@ -1,6 +1,10 @@
-﻿<Properties StartupItem="ProgrammingAssignment1/ProgrammingAssignment1.csproj">
+﻿<Properties StartupItem="Lab4/Lab4.csproj">
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug|x86" />
-  <MonoDevelop.Ide.Workbench />
+  <MonoDevelop.Ide.Workbench ActiveDocument="Lab4/Program.cs">
+    <Files>
+      <File FileName="Lab4/Program.cs" Line="8" Column="8" />
+    </Files>
+  </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
     <BreakpointStore />
   </MonoDevelop.Ide.DebuggingService.Breakpoints>
