@@ -16,6 +16,7 @@ namespace Lab4
 		/// <param name="args">command-line args</param>
 		static void Main(string[] args)
 		{
+			Deck
 			// create a new deck and print the contents of the deck
 
 			// shuffle the deck and print the contents of the deck
