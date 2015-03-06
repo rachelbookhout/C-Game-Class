@@ -16,15 +16,28 @@ namespace Lab4
 		/// <param name="args">command-line args</param>
 		static void Main(string[] args)
 		{
-			Deck
-			// create a new deck and print the contents of the deck
+			Deck deck = new Deck();
 
-			// shuffle the deck and print the contents of the deck
+		
 
-			// take the top card from the deck and print the card rank and suit
+			deck.Print();
+			//Console.WriteLine();
+			// tell the deck to shuffle itself
+			deck.Shuffle();
+			deck.Print ();
+			// cut the deck
+			//deck.Cut(26);
+			Console.WriteLine();
+			Console.WriteLine();
 
-			// take the top card from the deck and print the card rank and suit
-
+			// take top card and print info
+			deck.TakeTopCard();
+			Card card = deck.TakeTopCard();
+			Console.WriteLine(card.Rank + " of " + card.Suit);
+			Card card2 = deck.TakeTopCard ();
+			Console.WriteLine (card2.Rank + " of" + card2.Suit); 
+			//Console.WriteLine();
+			//deck.Print();
 
 		}
 	}
