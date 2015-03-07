@@ -21,23 +21,18 @@ namespace Lab4
 		
 
 			deck.Print();
-			//Console.WriteLine();
-			// tell the deck to shuffle itself
 			deck.Shuffle();
 			deck.Print ();
-			// cut the deck
-			//deck.Cut(26);
+		
 			Console.WriteLine();
 			Console.WriteLine();
 
-			// take top card and print info
 			deck.TakeTopCard();
 			Card card = deck.TakeTopCard();
 			Console.WriteLine(card.Rank + " of " + card.Suit);
 			Card card2 = deck.TakeTopCard ();
-			Console.WriteLine (card2.Rank + " of" + card2.Suit); 
-			//Console.WriteLine();
-			//deck.Print();
+			Console.WriteLine (card2.Rank + " of " + card2.Suit); 
+		
 
 		}
 	}
