@@ -30,8 +30,17 @@ namespace Lab5
 	{
 
 		#region Fields
-
+		const int WINDOW_WIDTH = 800;
+		const int WINDOW_HEIGHT = 600; 
 		GraphicsDeviceManager graphics;
+		Texture2D doxy;
+		Texture2D tigger;
+		Texture2D vi;
+		Rectangle drawRectangle1;
+		Rectangle drawRectangle2;
+		Rectangle drawRectangle3;
+
+
 		SpriteBatch spriteBatch;
 		Texture2D logoTexture;
 
@@ -45,7 +54,8 @@ namespace Lab5
 			graphics = new GraphicsDeviceManager (this);
 			
 			Content.RootDirectory = "Assets";
-
+			graphics.PreferredBackBufferWidth = WINDOW_WIDTH;
+			graphics.PreferredBackBufferHeight = WINDOW_HEIGHT; 
 			graphics.IsFullScreen = false;
 		}
 
@@ -66,9 +76,27 @@ namespace Lab5
 		{
 			// Create a new SpriteBatch, which can be use to draw textures.
 			spriteBatch = new SpriteBatch (graphics.GraphicsDevice);
-			
+
 			// TODO: use this.Content to load your game content here eg.
-			logoTexture = Content.Load<Texture2D> ("logo");
+			doxy = Content.Load<Texture2D> ("doxy");
+			tigger= Content.Load<Texture2D> ("tigger");
+			vi= Content.Load<Texture2D> ("vi");
+
+			drawRectangle1 = new Rectangle (
+				graphics.PreferredBackBufferWidth/4,
+				graphics.PreferredBackBufferHeight/4,
+				doxy.Width, doxy.Height);
+
+			drawRectangle2 = new Rectangle (
+				graphics.PreferredBackBufferWidth/4,
+				graphics.PreferredBackBufferHeight/4,
+				tigger.Width, tigger.Height);
+
+			drawRectangle3 = new Rectangle (
+				graphics.PreferredBackBufferWidth/4,
+				graphics.PreferredBackBufferHeight/4,
+				vi.Width, vi.Height);
+
 		}
 
 		#endregion
