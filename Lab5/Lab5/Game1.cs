@@ -88,13 +88,13 @@ namespace Lab5
 				doxy.Width, doxy.Height);
 
 			drawRectangle2 = new Rectangle (
-				graphics.PreferredBackBufferWidth/4,
-				graphics.PreferredBackBufferHeight/4,
+				graphics.PreferredBackBufferWidth/2,
+				graphics.PreferredBackBufferHeight/2,
 				tigger.Width, tigger.Height);
 
 			drawRectangle3 = new Rectangle (
-				graphics.PreferredBackBufferWidth/4,
-				graphics.PreferredBackBufferHeight/4,
+				graphics.PreferredBackBufferWidth * 3/4,
+				graphics.PreferredBackBufferHeight * 3/4,
 				vi.Width, vi.Height);
 
 		}
@@ -127,7 +127,10 @@ namespace Lab5
 			spriteBatch.Begin ();
 
 			// draw the logo
-			spriteBatch.Draw (logoTexture, new Vector2 (130, 200), Color.White);
+			spriteBatch.Draw (doxy,drawRectangle1, Color.White);
+			spriteBatch.Draw (tigger,drawRectangle2, Color.White);
+			spriteBatch.Draw (vi,drawRectangle3, Color.White);
+
 
 			spriteBatch.End ();
 
