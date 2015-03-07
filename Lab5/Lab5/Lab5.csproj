@@ -23,7 +23,6 @@
     <UseSGen>false</UseSGen>
     <IncludeMonoRuntime>false</IncludeMonoRuntime>
     <EnablePackageSigning>false</EnablePackageSigning>
-    <CodeSigningKey>Mac Developer</CodeSigningKey>
     <EnableCodeSigning>false</EnableCodeSigning>
     <CreatePackage>false</CreatePackage>
   </PropertyGroup>
@@ -69,10 +68,10 @@
     <Reference Include="MonoMac">
       <HintPath>packages\MonoMac.dll</HintPath>
     </Reference>
-    <Reference Include="MonoGame">
+    <Reference Include="MonoGame.Framework">
       <HintPath>packages\MonoGame.Framework.dll</HintPath>
     </Reference>
-    <Reference Include="Lidgren">
+    <Reference Include="Lidgren.Network">
       <HintPath>packages\Lidgren.Network.dll</HintPath>
     </Reference>
   </ItemGroup>
@@ -91,4 +90,15 @@
     <BundleResource Include="Assets\logo.png" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <ItemGroup>
+    <Content Include="Assets\tigger.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Assets\V..jpg">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Assets\doxy.jpg">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
 </Project>
