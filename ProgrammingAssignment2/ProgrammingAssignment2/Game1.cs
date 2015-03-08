@@ -138,11 +138,13 @@ namespace ProgrammingAssignment2
 				// STUDENTS: write code below to generate random numbers  between -4 and 4 inclusive for the x and y speed 
 				// using the rand field I provided
 				// CAUTION: Don't redeclare the x speed and y speed variables here!
-
+				xspeed = rand.Next(-4,4);
+				yspeed = rand.Next(-4,4);
 			}
 
 			// STUDENTS: move the drawRectangle by the x speed and the y speed
-
+			drawRectangle.X += (int)(xspeed);
+			drawRectangle.Y += (int)(yspeed);
 
 			base.Update(gameTime);
 		}
