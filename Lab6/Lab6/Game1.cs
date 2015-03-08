@@ -32,11 +32,10 @@ namespace Lab6
 		#region Fields
 		GraphicsDeviceManager graphics;
 		SpriteBatch spriteBatch;
-		Texture2D logoTexture;
-		Texture2D teddyBear1;
-		Texture2D teddyBear2;
-		Rectangle drawRectangle1;
-		Rectangle drawRectangle2;
+		TeddyBear teddyBear1;
+		TeddyBear teddyBear2;
+		const int WINDOW_WIDTH = 800;
+		const int WINDOW_HEIGHT = 600;
 
 		#endregion
 
@@ -44,14 +43,13 @@ namespace Lab6
 
 		public Game1 ()
 		{
-			const int WINDOW_WIDTH = 800;
-			const int WINDOW_HEIGHT = 600;
+		
 			graphics = new GraphicsDeviceManager (this);
 
-			graphics.PreferredBackBufferWidth = WINDOW_WIDTH;
-			graphics.PreferredBackBufferHeight = WINDOW_HEIGHT; 
+			 
 			Content.RootDirectory = "Assets";
-
+			graphics.PreferredBackBufferWidth = WINDOW_WIDTH;
+			graphics.PreferredBackBufferHeight = WINDOW_HEIGHT;
 			graphics.IsFullScreen = false;
 		}
 
@@ -72,19 +70,14 @@ namespace Lab6
 		{
 			// Create a new SpriteBatch, which can be use to draw textures.
 			spriteBatch = new SpriteBatch (graphics.GraphicsDevice);
-			
-			// TODO: use this.Content to load your game content here eg.
-			teddyBear1 = Content.Load<Texture2D> ("teddybear0");
-			teddyBear2 = Content.Load<Texture2D> ("teddybear1");
-				drawRectangle1 = new Rectangle(
-					graphics.PreferredBackBufferWidth/4,
-					graphics.PreferredBackBufferHeight/4,
-					teddyBear1.Width, teddyBear1.Height);
-				drawRectangle2 = new Rectangle(graphics.PreferredBackBufferWidth/2,
-					graphics.PreferredBackBufferHeight/2,
-					teddyBear2.Width, teddyBear2.Height);
-				}
 
+			// TODO: use this.Content to load your game content here eg.
+			teddyBear1 = new TeddyBear (Content, "teddybear0", graphics.PreferredBackBufferWidth / 4, graphics.PreferredBackBufferHeight / 4,
+				WINDOW_WIDTH, WINDOW_HEIGHT);
+			teddyBear2 = new TeddyBear (Content, "teddybear1", graphics.PreferredBackBufferWidth / 2, graphics.PreferredBackBufferHeight / 2,
+				WINDOW_WIDTH, WINDOW_HEIGHT);
+
+		}
 		#endregion
 
 		#region Update and Draw
@@ -97,8 +90,11 @@ namespace Lab6
 		protected override void Update (GameTime gameTime)
 		{
 			// TODO: Add your update logic here			
-            		
-			base.Update (gameTime);
+				if (GamePad.GetState(PlayerIndex.One).Buttons.Back == ButtonState.Pressed)
+					this.Exit();
+				teddyBear1.Update();
+				teddyBear2.Update();
+				base.Update (gameTime);
 		}
 
 		/// <summary>
@@ -111,10 +107,10 @@ namespace Lab6
 			graphics.GraphicsDevice.Clear (Color.CornflowerBlue);
 
 			spriteBatch.Begin ();
-
+			teddyBear1.Draw (spriteBatch);
+			teddyBear2.Draw (spriteBatch);
 			// draw the logo
-			spriteBatch.Draw (teddyBear1,drawRectangle1, Color.White);
-			spriteBatch.Draw (teddyBear2,drawRectangle2, Color.White);
+		
 			spriteBatch.End ();
 
 			//TODO: Add your drawing code here
