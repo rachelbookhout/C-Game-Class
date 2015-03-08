@@ -69,10 +69,10 @@
     <Reference Include="MonoMac">
       <HintPath>packages\MonoMac.dll</HintPath>
     </Reference>
-    <Reference Include="MonoGame">
+    <Reference Include="MonoGame.Framework">
       <HintPath>packages\MonoGame.Framework.dll</HintPath>
     </Reference>
-    <Reference Include="Lidgren">
+    <Reference Include="Lidgren.Network">
       <HintPath>packages\Lidgren.Network.dll</HintPath>
     </Reference>
   </ItemGroup>
@@ -87,8 +87,16 @@
     <Compile Include="Main.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
-  <ItemGroup>
-    <BundleResource Include="Assets\logo.png" />
-  </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <ItemGroup>
+    <Content Include="Assets\icon1.jpeg">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Assets\icon2.jpeg">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Assets\icon3.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
 </Project>

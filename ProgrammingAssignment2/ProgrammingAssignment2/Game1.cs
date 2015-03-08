@@ -23,10 +23,13 @@ namespace ProgrammingAssignment2
 		SpriteBatch spriteBatch;
 
 		// STUDENTS: declare variables for three sprites
-
+		Texture2D icon1;
+		Texture2D icon2;
+		Texture2D icon3;
 
 		// STUDENTS: declare variables for x and y speeds
-
+		int xspeed;
+		int yspeed;
 
 		// used to handle generating random values
 		Random rand = new Random();
@@ -40,7 +43,7 @@ namespace ProgrammingAssignment2
 		public Game1()
 		{
 			graphics = new GraphicsDeviceManager(this);
-			Content.RootDirectory = "Content";
+			Content.RootDirectory = "Assets";
 
 			graphics.PreferredBackBufferWidth = WINDOW_WIDTH;
 			graphics.PreferredBackBufferHeight = WINDOW_HEIGHT; ;
@@ -69,7 +72,9 @@ namespace ProgrammingAssignment2
 			spriteBatch = new SpriteBatch(GraphicsDevice);
 
 			// STUDENTS: load the sprite images here
-
+			icon1 = Content.Load<Texture2D> ("icon1");
+			icon2 = Content.Load<Texture2D> ("icon2");
+			icon3 = Content.Load<Texture2D> ("icon3");
 
 			// STUDENTS: set the currentSprite variable to one of your sprite variables
 
@@ -92,8 +97,8 @@ namespace ProgrammingAssignment2
 		protected override void Update(GameTime gameTime)
 		{
 			// Allows the game to exit
-			if (GamePad.GetState(PlayerIndex.One).Buttons.Back == ButtonState.Pressed)
-				this.Exit();
+			//if (GamePad.GetState(PlayerIndex.One).Buttons.Back == ButtonState.Pressed)
+			//	this.Exit();
 
 			elapsedTime += gameTime.ElapsedGameTime.Milliseconds;
 			if (elapsedTime > CHANGE_DELAY_TIME)
@@ -102,26 +107,29 @@ namespace ProgrammingAssignment2
 
 				// STUDENTS: uncomment the code below and make it generate a random number 
 				// between 0 and 2 inclusive using the rand field I provided
-				//int spriteNumber = ;
+				int spriteNumber = rand.Next(0,3);
 
 				// sets current sprite
 				// STUDENTS: uncomment the lines below and change sprite0, sprite1, and sprite2
 				//      to the three different names of your sprite variables
-				//if (spriteNumber == 0)
-				//{
-				//    currentSprite = sprite0;
-				//}
-				//else if (spriteNumber == 1)
-				//{
-				//    currentSprite = sprite1;
-				//}
-				//else if (spriteNumber == 2)
-				//{
-				//    currentSprite = sprite2;
-				//}
+				if (spriteNumber == 0)
+				{
+				    currentSprite = icon1;
+				}
+				else if (spriteNumber == 1)
+				{
+				    currentSprite = icon2;
+				}
+				else if (spriteNumber == 2)
+				{
+				    currentSprite = icon3;
+				}
 
 				// STUDENTS: set the drawRectangle.Width and drawRectangle.Height to match the width and height of currentSprite
-
+				drawRectangle = new Rectangle (
+					graphics.PreferredBackBufferWidth/2,
+					graphics.PreferredBackBufferHeight/2,
+					currentSprite.Width, currentSprite.Height);				
 
 				// STUDENTS: center the draw rectangle in the window. Note that the X and Y properties of the rectangle
 				// are for the upper left corner of the rectangle, not the center of the rectangle
