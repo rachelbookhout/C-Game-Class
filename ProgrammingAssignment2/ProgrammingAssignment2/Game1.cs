@@ -77,7 +77,7 @@ namespace ProgrammingAssignment2
 			icon3 = Content.Load<Texture2D> ("icon3");
 
 			// STUDENTS: set the currentSprite variable to one of your sprite variables
-
+			currentSprite = icon1;
 		}
 
 		/// <summary>
@@ -156,7 +156,14 @@ namespace ProgrammingAssignment2
 			GraphicsDevice.Clear(Color.CornflowerBlue);
 
 			// STUDENTS: draw current sprite here
+			spriteBatch.Begin ();
 
+			// draw the logo
+			spriteBatch.Draw (currentSprite,drawRectangle, Color.White);
+		
+
+
+			spriteBatch.End ();
 
 			base.Draw(gameTime);
 		}
