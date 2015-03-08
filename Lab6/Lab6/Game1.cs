@@ -30,10 +30,13 @@ namespace Lab6
 	{
 
 		#region Fields
-
 		GraphicsDeviceManager graphics;
 		SpriteBatch spriteBatch;
 		Texture2D logoTexture;
+		Texture2D teddyBear1;
+		Texture2D teddyBear2;
+		Rectangle drawRectangle1;
+		Rectangle drawRectangle2;
 
 		#endregion
 
@@ -41,9 +44,12 @@ namespace Lab6
 
 		public Game1 ()
 		{
-
+			const int WINDOW_WIDTH = 800;
+			const int WINDOW_HEIGHT = 600;
 			graphics = new GraphicsDeviceManager (this);
-			
+
+			graphics.PreferredBackBufferWidth = WINDOW_WIDTH;
+			graphics.PreferredBackBufferHeight = WINDOW_HEIGHT; 
 			Content.RootDirectory = "Assets";
 
 			graphics.IsFullScreen = false;
@@ -68,8 +74,16 @@ namespace Lab6
 			spriteBatch = new SpriteBatch (graphics.GraphicsDevice);
 			
 			// TODO: use this.Content to load your game content here eg.
-			logoTexture = Content.Load<Texture2D> ("logo");
-		}
+			teddyBear1 = Content.Load<Texture2D> ("teddybear0");
+			teddyBear2 = Content.Load<Texture2D> ("teddybear1");
+				drawRectangle1 = new Rectangle(
+					graphics.PreferredBackBufferWidth/4,
+					graphics.PreferredBackBufferHeight/4,
+					teddyBear1.Width, teddyBear1.Height);
+				drawRectangle2 = new Rectangle(graphics.PreferredBackBufferWidth/2,
+					graphics.PreferredBackBufferHeight/2,
+					teddyBear2.Width, teddyBear2.Height);
+				}
 
 		#endregion
 
@@ -99,8 +113,8 @@ namespace Lab6
 			spriteBatch.Begin ();
 
 			// draw the logo
-			spriteBatch.Draw (logoTexture, new Vector2 (130, 200), Color.White);
-
+			spriteBatch.Draw (teddyBear1,drawRectangle1, Color.White);
+			spriteBatch.Draw (teddyBear2,drawRectangle2, Color.White);
 			spriteBatch.End ();
 
 			//TODO: Add your drawing code here
