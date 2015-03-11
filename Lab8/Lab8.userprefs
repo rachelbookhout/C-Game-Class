@@ -1,1 +1,12 @@
-﻿<Properties StartupItem="Lab8/Lab8.csproj" />
+﻿<Properties StartupItem="Lab8/Lab8.csproj">
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug|x86" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="Lab8/Program.cs">
+    <Files>
+      <File FileName="Lab8/Program.cs" Line="24" Column="24" />
+    </Files>
+  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore />
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+</Properties>
