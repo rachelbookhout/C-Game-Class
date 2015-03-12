@@ -27,8 +27,8 @@ namespace Lab8
 			Console.WriteLine ("Block letter is " + letter);
 			//Extract whether or not the block should be lit from the string and store it in a variable.
 			//Print whether or not the block should be lit.
-			//string lit = 
-			//Console.WriteLine ("Block is lit: " + lit);
+			string lit = second_string.Substring (second_comma + 1);
+			Console.WriteLine ("Is block is lit?: " + lit);
 		}
 	}
 }
