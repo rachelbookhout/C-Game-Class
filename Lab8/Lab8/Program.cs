@@ -21,10 +21,10 @@ namespace Lab8
 			//Extract the block letter from the string and store it in a variable.
 			//Print the block letter.
 			string second_string = answer.Substring (commaLocation + 1);
-				Console.Write(second_string);
-			//char letter = 
-			//Console.WriteLine ("Block letter is " + letter);
+			int second_comma = second_string.IndexOf (',');
 
+			string letter = second_string.Substring (0, second_comma); 
+			Console.WriteLine ("Block letter is " + letter);
 			//Extract whether or not the block should be lit from the string and store it in a variable.
 			//Print whether or not the block should be lit.
 			//string lit = 
