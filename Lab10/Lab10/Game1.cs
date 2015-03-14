@@ -34,8 +34,9 @@ namespace Lab10
 		const int WINDOW_HEIGHT = 600;
 		GraphicsDeviceManager graphics;
 		SpriteBatch spriteBatch;
-
-
+		TeddyBear teddyBear1;
+		TeddyBear teddyBear2;
+		Explosion explosion;
 
 		Texture2D logoTexture;
 
@@ -49,7 +50,8 @@ namespace Lab10
 			graphics = new GraphicsDeviceManager (this);
 			
 			Content.RootDirectory = "Assets";
-
+			graphics.PreferredBackBufferWidth = WINDOW_WIDTH;
+			graphics.PreferredBackBufferHeight = WINDOW_HEIGHT;
 			graphics.IsFullScreen = false;
 		}
 
@@ -72,8 +74,18 @@ namespace Lab10
 			spriteBatch = new SpriteBatch (graphics.GraphicsDevice);
 			
 			// TODO: use this.Content to load your game content here eg.
+
 			logoTexture = Content.Load<Texture2D> ("logo");
+
+		
+
+			teddyBear1 = new TeddyBear (Content, WINDOW_WIDTH, WINDOW_HEIGHT,"teddybear0", 300,200, new Vector2(-5,0));
+			teddyBear2 = new TeddyBear (Content, WINDOW_WIDTH, WINDOW_HEIGHT,"teddybear1", 500,200, new Vector2(5,0));
+			explosion = new Explosion(Content);
 		}
+
+	
+
 
 		#endregion
 
