@@ -102,7 +102,25 @@ namespace Lab10
 			teddyBear1.Update();
 			teddyBear2.Update();
 			explosion.Update(gameTime);	
+
+			if (teddyBear1.Active &&
+				teddyBear2.Active &&
+				teddyBear1.DrawRectangle.Intersects(teddyBear2.DrawRectangle))
+			{
+				// deactivate bears
+				teddyBear1.Active = false;
+				teddyBear2.Active = false;
+
+				// play explosion at approximately the point of collision
+				Rectangle collisionRectangle = Rectangle.Intersect(
+					teddyBear1.DrawRectangle, teddyBear2.DrawRectangle);
+				explosion.Play(collisionRectangle.Center.X, 
+					collisionRectangle.Center.Y);
+			}
+
 			base.Update (gameTime);
+
+
 		}
 
 		/// <summary>
