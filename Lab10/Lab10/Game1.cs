@@ -18,7 +18,7 @@ using Microsoft.Xna.Framework.Input.Touch;
 using Microsoft.Xna.Framework.Storage;
 using Microsoft.Xna.Framework.Content;
 using Microsoft.Xna.Framework.Media;
-
+using ExplodingTeddies;
 #endregion
 
 namespace Lab10
@@ -30,9 +30,13 @@ namespace Lab10
 	{
 
 		#region Fields
-
+		const int WINDOW_WIDTH = 800;
+		const int WINDOW_HEIGHT = 600;
 		GraphicsDeviceManager graphics;
 		SpriteBatch spriteBatch;
+
+
+
 		Texture2D logoTexture;
 
 		#endregion
