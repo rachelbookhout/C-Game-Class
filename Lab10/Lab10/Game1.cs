@@ -99,7 +99,9 @@ namespace Lab10
 		protected override void Update (GameTime gameTime)
 		{
 			// TODO: Add your update logic here			
-            		
+			teddyBear1.Update();
+			teddyBear2.Update();
+			explosion.Update(gameTime);	
 			base.Update (gameTime);
 		}
 
@@ -115,8 +117,9 @@ namespace Lab10
 			spriteBatch.Begin ();
 
 			// draw the logo
-			spriteBatch.Draw (logoTexture, new Vector2 (130, 200), Color.White);
-
+			teddyBear1.Draw(spriteBatch);
+			teddyBear2.Draw(spriteBatch);
+			explosion.Draw(spriteBatch);
 			spriteBatch.End ();
 
 			//TODO: Add your drawing code here
