@@ -27,10 +27,13 @@ namespace ProgrammingAssignment3
 			WINDOW_WIDTH / 2, WINDOW_HEIGHT / 2);
 
 		// STUDENTS: declare variables for 3 rock sprites
+		Texture2D wrock;
+		Texture2D grock;
+		Texture2D mrock;
+		// STUDENTS: declare variables for 3 rocks
 		Rock rock1;
 		Rock rock2;
 		Rock rock3;
-		// STUDENTS: declare variables for 3 rocks
 
 		// delay support
 		const int TOTAL_DELAY_MILLISECONDS = 1000;
@@ -76,7 +79,12 @@ namespace ProgrammingAssignment3
 			spriteBatch = new SpriteBatch(GraphicsDevice);
 
 			// STUDENTS: Load content for 3 sprites
+			//Rock(Texture2D sprite, Vector2 location, Vector2 velocity,
+			//	int windowWidth, int windowHeight)
 
+			wrock = Content.Load<Texture2D> ("whiterock");
+			grock = Content.Load<Texture2D> ("greenrock");
+			mrock = Content.Load<Texture2D> ("magentarock");
 			// STUDENTS: Create a new random rock by calling the GetRandomRock method
 
 		}
