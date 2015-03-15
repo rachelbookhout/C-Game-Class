@@ -79,12 +79,14 @@ namespace ProgrammingAssignment3
 			spriteBatch = new SpriteBatch(GraphicsDevice);
 
 			// STUDENTS: Load content for 3 sprites
-			//Rock(Texture2D sprite, Vector2 location, Vector2 velocity,
-			//	int windowWidth, int windowHeight)
+		
 
 			wrock = Content.Load<Texture2D> ("whiterock");
 			grock = Content.Load<Texture2D> ("greenrock");
 			mrock = Content.Load<Texture2D> ("magentarock");
+			//rock1 = new Rock (wrock, new Vector2(-5,0),new Vector2(10,12), WINDOW_WIDTH, WINDOW_HEIGHT);
+			//rock2 = new Rock (grock,new Vector2(5,0),new Vector2(9,3), WINDOW_WIDTH, WINDOW_HEIGHT);
+			//rock3 = new Rock(mrock,new Vector2(-2,0),new Vector2(25,10), WINDOW_WIDTH, WINDOW_HEIGHT);
 			// STUDENTS: Create a new random rock by calling the GetRandomRock method
 			rrock = GetRandomRock ();
 		}
@@ -139,7 +141,10 @@ namespace ProgrammingAssignment3
 
 			// STUDENTS: draw rocks
 			spriteBatch.Begin();
-
+			rrock.Draw (spriteBatch);
+			//rock1.Draw (spriteBatch);
+			//rock2.Draw (spriteBatch);
+			//rock3.Draw (spriteBatch);
 			spriteBatch.End();
 
 			base.Draw(gameTime);
