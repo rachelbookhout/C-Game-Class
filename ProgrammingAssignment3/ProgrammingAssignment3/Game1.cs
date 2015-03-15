@@ -27,7 +27,9 @@ namespace ProgrammingAssignment3
 			WINDOW_WIDTH / 2, WINDOW_HEIGHT / 2);
 
 		// STUDENTS: declare variables for 3 rock sprites
-
+		Rock rock1;
+		Rock rock2;
+		Rock rock3;
 		// STUDENTS: declare variables for 3 rocks
 
 		// delay support
