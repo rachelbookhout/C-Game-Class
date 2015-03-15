@@ -34,7 +34,7 @@ namespace ProgrammingAssignment3
 		Rock rock1;
 		Rock rock2;
 		Rock rock3;
-
+		Rock rrock;
 		// delay support
 		const int TOTAL_DELAY_MILLISECONDS = 1000;
 		int elapsedDelayMilliseconds = 0;
@@ -86,7 +86,7 @@ namespace ProgrammingAssignment3
 			grock = Content.Load<Texture2D> ("greenrock");
 			mrock = Content.Load<Texture2D> ("magentarock");
 			// STUDENTS: Create a new random rock by calling the GetRandomRock method
-
+			rrock = GetRandomRock ();
 		}
 
 		/// <summary>
@@ -152,15 +152,15 @@ namespace ProgrammingAssignment3
 		private Rock GetRandomRock()
 		{
 			// STUDENTS: Uncomment and complete the code below to randomly pick a rock sprite by calling the GetRandomSprite method
-			//Texture2D sprite = ;
+			Texture2D sprite = GetRandomSprite();
 
 			// STUDENTS: Uncomment and complete the code below to randomly pick a velocity by calling the GetRandomVelocity method
-			//Vector2 velocity = ;
+			Vector2 velocity = GetRandomVelocity();
 
 			// STUDENTS: After completing the two lines of code above, delete the following two lines of code
 			// They're only included so the code I provided to you compiles
-			Texture2D sprite = null;
-			Vector2 velocity = Vector2.Zero;
+			//Texture2D sprite = null;
+			//Vector2 velocity = Vector2.Zero;
 
 			// return a new rock, centered in the window, with the random sprite and velocity
 			return new Rock(sprite, centerLocation, velocity, WINDOW_WIDTH, WINDOW_HEIGHT);
@@ -174,23 +174,20 @@ namespace ProgrammingAssignment3
 		{
 			// STUDENTS: Uncommment and modify the code below as appropriate to return 
 			// a random sprite
-			//int spriteNumber = ;
-			//if (spriteNumber == 0)
-			//{
-			//    return <put sprite variable name here (without < and >)>;
-			//}
-			//else if (spriteNumber == 1)
-			//{
-			//    return <put sprite variable name here (without < and >)>;
-			//}
-			//else
-			//{
-			//    return <put sprite variable name here (without < and >)>;
-			//}
+			int spriteNumber = rand.Next(0,3);
+			if (spriteNumber == 0)
+			{
+				return wrock;
+			}
+			else if (spriteNumber == 1)
+			{
+				return grock;
+			}
+			else
+			{
+				return mrock;
+			}
 
-			// STUDENTS: After completing the code above, delete the following line of code
-			// It's only included so the code I provided to you compiles
-			return null;
 		}
 
 		/// <summary>
@@ -201,27 +198,25 @@ namespace ProgrammingAssignment3
 		{
 			// STUDENTS: Uncommment and modify the code below as appropriate to return 
 			// a random velocity
-			//int velocityNumber = ;
-			//if (velocityNumber == 0)
-			//{
-			//    return upLeft;
-			//}
-			//else if (velocityNumber == 1)
-			//{
-			//    return upRight;
-			//}
-			//else if (velocityNumber == 2)
-			//{
-			//    return downRight;
-			//}
-			//else
-			//{
-			//    return downLeft;
-			//}
+			int velocityNumber = rand.Next(0,3);
+			if (velocityNumber == 0)
+			{
+			    return upLeft;
+			}
+			else if (velocityNumber == 1)
+			{
+			    return upRight;
+			}
+			else if (velocityNumber == 2)
+			{
+			   return downRight;
+			}
+			else
+			{
+			    return downLeft;
+			}
 
-			// STUDENTS: After completing the code above, delete the following line of code
-			// It's only included so the code I provided to you compiles
-			return Vector2.Zero;
+
 		}
 	}
 }
