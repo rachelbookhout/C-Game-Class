@@ -34,7 +34,6 @@ namespace ProgrammingAssignment3
 		Rock rock1;
 		Rock rock2;
 		Rock rock3;
-		Rock rrock;
 		// delay support
 		const int TOTAL_DELAY_MILLISECONDS = 1000;
 		int elapsedDelayMilliseconds = 0;
@@ -84,11 +83,7 @@ namespace ProgrammingAssignment3
 			wrock = Content.Load<Texture2D> ("whiterock");
 			grock = Content.Load<Texture2D> ("greenrock");
 			mrock = Content.Load<Texture2D> ("magentarock");
-			//rock1 = new Rock (wrock, new Vector2(-5,0),new Vector2(10,12), WINDOW_WIDTH, WINDOW_HEIGHT);
-			//rock2 = new Rock (grock,new Vector2(5,0),new Vector2(9,3), WINDOW_WIDTH, WINDOW_HEIGHT);
-			//rock3 = new Rock(mrock,new Vector2(-2,0),new Vector2(25,10), WINDOW_WIDTH, WINDOW_HEIGHT);
-			// STUDENTS: Create a new random rock by calling the GetRandomRock method
-			rrock = GetRandomRock ();
+			rock1 = GetRandomRock ();
 		}
 
 		/// <summary>
@@ -112,14 +107,35 @@ namespace ProgrammingAssignment3
 			//	this.Exit();
 
 			// STUDENTS: update rocks
-
-
+			if (rock1 != null)
+			{
+				rock1.Update(gameTime);
+			}
+			if (rock2 != null)
+			{
+				rock2.Update(gameTime);
+			}
+			if (rock3 != null)
+			{
+				rock3.Update(gameTime);
+			}
 			// update timer
 			elapsedDelayMilliseconds += gameTime.ElapsedGameTime.Milliseconds;
 			if (elapsedDelayMilliseconds >= TOTAL_DELAY_MILLISECONDS)
 			{
 				// STUDENTS: timer expired, so spawn new rock if fewer than 3 rocks in window
-
+				if (rock1 == null)
+				{
+					rock1 = GetRandomRock();
+				}
+				else if (rock2 == null)
+				{
+					rock2 = GetRandomRock();
+				}
+				else if (rock3 == null)
+				{
+					rock3 = GetRandomRock();
+				}
 				// restart timer
 				elapsedDelayMilliseconds = 0;
 			}
@@ -127,7 +143,22 @@ namespace ProgrammingAssignment3
 			// STUDENTS: Check each rock to see if it's outside the window. If so
 			// spawn a new random rock for it by calling the GetRandomRock method
 			// Caution: Only check the property if the variable isn't null
+			if (rock1 != null &&
+				rock1.OutsideWindow == true)
+			{
+				rock1 = GetRandomRock();
+			}
+			if (rock2 != null &&
+				rock2.OutsideWindow == true)
+			{
+				rock2 = GetRandomRock();
+			}
 
+			if (rock3 != null &&
+				rock3.OutsideWindow == true)
+			{
+				rock3 = GetRandomRock();
+			}
 			base.Update(gameTime);
 		}
 
@@ -141,10 +172,18 @@ namespace ProgrammingAssignment3
 
 			// STUDENTS: draw rocks
 			spriteBatch.Begin();
-			rrock.Draw (spriteBatch);
-			//rock1.Draw (spriteBatch);
-			//rock2.Draw (spriteBatch);
-			//rock3.Draw (spriteBatch);
+			if (rock1 != null)
+			{
+				rock1.Draw(spriteBatch);
+			}
+			if (rock2 != null)
+			{
+				rock2.Draw(spriteBatch);
+			}
+			if (rock3 != null)
+			{
+				rock3.Draw(spriteBatch);
+			}			
 			spriteBatch.End();
 
 			base.Draw(gameTime);
