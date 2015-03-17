@@ -1,0 +1,12 @@
+﻿<Properties StartupItem="ProjectIncrement1/GameProject.csproj">
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="ProjectIncrement1/Game1.cs">
+    <Files>
+      <File FileName="ProjectIncrement1/Game1.cs" Line="22" Column="22" />
+    </Files>
+  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore />
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+</Properties>
