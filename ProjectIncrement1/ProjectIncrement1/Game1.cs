@@ -62,7 +62,7 @@ namespace GameProject
 		public Game1()
 		{
 			graphics = new GraphicsDeviceManager(this);
-			Content.RootDirectory = "Content";
+			Content.RootDirectory = "Assets";
 
 			// set resolution
 			graphics.PreferredBackBufferWidth = GameConstants.WINDOW_WIDTH;
@@ -118,10 +118,7 @@ namespace GameProject
 		/// <param name="gameTime">Provides a snapshot of timing values.</param>
 		protected override void Update(GameTime gameTime)
 		{
-			// Allows the game to exit
-			if (GamePad.GetState(PlayerIndex.One).Buttons.Back == ButtonState.Pressed ||
-				Keyboard.GetState().IsKeyDown(Keys.Escape))
-				this.Exit();
+
 
 			// get current mouse state and update burger
 
