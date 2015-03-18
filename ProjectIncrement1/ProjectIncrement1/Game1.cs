@@ -94,7 +94,7 @@ namespace GameProject
 			// load audio content
 
 			// load sprite font
-
+			burger = new Burger (Content,"burger",graphics.PreferredBackBufferWidth/2,graphics.PreferredBackBufferHeight * 7/8,null);
 			// load projectile and explosion sprites
 
 			// add initial game objects
@@ -164,7 +164,7 @@ namespace GameProject
 			spriteBatch.Begin();
 
 			// draw game objects
-			//burger.Draw(spriteBatch);
+			burger.Draw(spriteBatch);
 			foreach (TeddyBear bear in bears)
 			{
 				bear.Draw(spriteBatch);
@@ -273,3 +273,4 @@ namespace GameProject
 		#endregion
 	}
 }
+#endregion

@@ -6,7 +6,7 @@ using System.Linq;
 using MonoMac.AppKit;
 using MonoMac.Foundation;
 
-namespace ProjectIncrement1
+namespace GameProject
 {
 	static class Program
 	{

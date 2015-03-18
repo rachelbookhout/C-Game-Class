@@ -2,7 +2,8 @@
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
   <MonoDevelop.Ide.Workbench ActiveDocument="ProjectIncrement1/Game1.cs">
     <Files>
-      <File FileName="ProjectIncrement1/Game1.cs" Line="22" Column="22" />
+      <File FileName="ProjectIncrement1/Game1.cs" Line="1" Column="1" />
+      <File FileName="ProjectIncrement1/Burger.cs" Line="3" Column="3" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
