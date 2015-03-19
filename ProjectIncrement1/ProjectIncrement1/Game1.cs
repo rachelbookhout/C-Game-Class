@@ -25,7 +25,9 @@ namespace GameProject
 	{
 		GraphicsDeviceManager graphics;
 		SpriteBatch spriteBatch;
-
+		public const int SPAWN_BORDER_SIZE = 100;
+		int xlocation;
+		int ylocation;
 		// game objects. Using inheritance would make this
 		// easier, but inheritance isn't a GDD 1200 topic
 		Burger burger;
@@ -95,6 +97,7 @@ namespace GameProject
 
 			// load sprite font
 			burger = new Burger (Content,"burger",graphics.PreferredBackBufferWidth/2,graphics.PreferredBackBufferHeight * 7/8,null);
+			SpawnBear ();
 			// load projectile and explosion sprites
 
 			// add initial game objects
@@ -217,7 +220,8 @@ namespace GameProject
 		private void SpawnBear()
 		{
 			// generate random location
-
+			xlocation = GetRandomLocation(SPAWN_BORDER_SIZE,graphics.PreferredBackBufferWidth - SPAWN_BORDER_SIZE *2 );
+			ylocation = GetRandomLocation(SPAWN_BORDER_SIZE,graphics.PreferredBackBufferHeight - SPAWN_BORDER_SIZE*2);
 			// generate random velocity
 
 			// create new bear
