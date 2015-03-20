@@ -28,6 +28,9 @@ namespace GameProject
 		public const int SPAWN_BORDER_SIZE = 100;
 		int xlocation;
 		int ylocation;
+		float velocity;
+		float angle;
+		float vec;
 		// game objects. Using inheritance would make this
 		// easier, but inheritance isn't a GDD 1200 topic
 		Burger burger;
@@ -223,7 +226,9 @@ namespace GameProject
 			xlocation = GetRandomLocation(SPAWN_BORDER_SIZE,graphics.PreferredBackBufferWidth - SPAWN_BORDER_SIZE *2 );
 			ylocation = GetRandomLocation(SPAWN_BORDER_SIZE,graphics.PreferredBackBufferHeight - SPAWN_BORDER_SIZE*2);
 			// generate random velocity
-
+			velocity = GameConstants.MIN_BEAR_SPEED + RandomNumberGenerator.NextFloat(GameConstants.BEAR_SPEED_RANGE);
+			angle=
+			vec =  
 			// create new bear
 
 			// make sure we don't spawn into a collision
