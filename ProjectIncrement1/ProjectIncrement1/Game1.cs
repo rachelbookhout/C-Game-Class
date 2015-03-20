@@ -30,7 +30,7 @@ namespace GameProject
 		int ylocation;
 		float velocity;
 		float angle;
-		float vec;
+		Vector2 vec;
 		// game objects. Using inheritance would make this
 		// easier, but inheritance isn't a GDD 1200 topic
 		Burger burger;
@@ -227,8 +227,9 @@ namespace GameProject
 			ylocation = GetRandomLocation(SPAWN_BORDER_SIZE,graphics.PreferredBackBufferHeight - SPAWN_BORDER_SIZE*2);
 			// generate random velocity
 			velocity = GameConstants.MIN_BEAR_SPEED + RandomNumberGenerator.NextFloat(GameConstants.BEAR_SPEED_RANGE);
-			angle=
-			vec =  
+			angle = RandomNumberGenerator.NextFloat(2*(float)Math.PI);
+
+			vec = new Vector2 (velocity * (float)Math.Cos(angle), velocity * (float)Math.Sin(angle));
 			// create new bear
 
 			// make sure we don't spawn into a collision
