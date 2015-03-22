@@ -18,6 +18,7 @@ using Microsoft.Xna.Framework.Input.Touch;
 using Microsoft.Xna.Framework.Storage;
 using Microsoft.Xna.Framework.Content;
 using Microsoft.Xna.Framework.Media;
+using ExplodingTeddies;
 
 #endregion
 
@@ -30,9 +31,13 @@ namespace Lab11
 	{
 
 		#region Fields
-
+		public const int WINDOW_WIDTH = 800;
+		public const int WINDOW_HEIGHT = 600;
 		GraphicsDeviceManager graphics;
 		SpriteBatch spriteBatch;
+		TeddyBear bear;
+		Explosion explosion;
+		Random random = new Random();
 		Texture2D logoTexture;
 
 		#endregion
@@ -45,7 +50,9 @@ namespace Lab11
 			graphics = new GraphicsDeviceManager (this);
 			
 			Content.RootDirectory = "Assets";
-
+			graphics.PreferredBackBufferWidth = WINDOW_WIDTH;
+			graphics.PreferredBackBufferHeight = WINDOW_HEIGHT;
+			IsMouseVisible = true;
 			graphics.IsFullScreen = false;
 		}
 
