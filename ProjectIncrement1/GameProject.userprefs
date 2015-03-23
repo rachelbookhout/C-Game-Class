@@ -1,14 +1,6 @@
-﻿<Properties StartupItem="ProjectIncrement1/GameProject.csproj">
+﻿<Properties MonoDevelop.MonoMac.LastXamMacNagTime="3/23/2015 5:30:05 PM" StartupItem="ProjectIncrement1/GameProject.csproj">
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="ProjectIncrement1/Game1.cs">
-    <Files>
-      <File FileName="ProjectIncrement1/Game1.cs" Line="46" Column="46" />
-      <File FileName="ProjectIncrement1/Burger.cs" Line="1" Column="1" />
-      <File FileName="ProjectIncrement1/TeddyBear.cs" Line="3" Column="3" />
-      <File FileName="ProjectIncrement1/GameConstants.cs" Line="3" Column="3" />
-      <File FileName="ProjectIncrement1/RandomNumberGenerator.cs" Line="1" Column="1" />
-    </Files>
-  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.Workbench />
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
     <BreakpointStore />
   </MonoDevelop.Ide.DebuggingService.Breakpoints>

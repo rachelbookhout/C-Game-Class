@@ -38,8 +38,10 @@ namespace Lab11
 		TeddyBear bear;
 		Explosion explosion;
 		Random random = new Random();
-		Texture2D logoTexture;
-
+		Texture2D teddybear;
+		Texture2D boom;
+		int x;
+		int y;
 		#endregion
 
 		#region Initialization
@@ -54,6 +56,7 @@ namespace Lab11
 			graphics.PreferredBackBufferHeight = WINDOW_HEIGHT;
 			IsMouseVisible = true;
 			graphics.IsFullScreen = false;
+
 		}
 
 		/// <summary>
@@ -73,9 +76,12 @@ namespace Lab11
 		{
 			// Create a new SpriteBatch, which can be use to draw textures.
 			spriteBatch = new SpriteBatch (graphics.GraphicsDevice);
-			
 			// TODO: use this.Content to load your game content here eg.
-			logoTexture = Content.Load<Texture2D> ("logo");
+			bear = new TeddyBear (Content, WINDOW_WIDTH,
+				WINDOW_HEIGHT, "teddybear0", random.Next(-4,5), 
+				random.Next(-4,5),   
+				new Vector2(random.Next(-4, 5), random.Next(-4, 5)));
+			explosion = new Explosion(Content);	
 		}
 
 		#endregion
@@ -90,7 +96,8 @@ namespace Lab11
 		protected override void Update (GameTime gameTime)
 		{
 			// TODO: Add your update logic here			
-            		
+			bear.Update();
+			explosion.Update(gameTime);		
 			base.Update (gameTime);
 		}
 
@@ -105,9 +112,8 @@ namespace Lab11
 
 			spriteBatch.Begin ();
 
-			// draw the logo
-			spriteBatch.Draw (logoTexture, new Vector2 (130, 200), Color.White);
-
+			bear.Draw (spriteBatch);
+			explosion.Draw (spriteBatch);
 			spriteBatch.End ();
 
 			//TODO: Add your drawing code here
