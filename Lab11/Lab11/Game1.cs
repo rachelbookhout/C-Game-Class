@@ -42,6 +42,7 @@ namespace Lab11
 		Texture2D boom;
 		int x;
 		int y;
+		MouseState mouseState;
 		#endregion
 
 		#region Initialization
@@ -95,9 +96,18 @@ namespace Lab11
 		/// <param name="gameTime">Provides a snapshot of timing values.</param>
 		protected override void Update (GameTime gameTime)
 		{
-			// TODO: Add your update logic here			
+			// TODO: Add your update logic here	
+			MouseState mouseState = Mouse.GetState();
 			bear.Update();
-			explosion.Update(gameTime);		
+			explosion.Update(gameTime);	
+			if (bear.Active && 
+				mouseState.LeftButton == ButtonState.Pressed &&
+				bear.DrawRectangle.Contains (mouseState.X, mouseState.Y))
+			{
+				bear.Active = false;
+				explosion.Play(bear.DrawRectangle.Center.X, bear.DrawRectangle.Center.Y);
+			}
+
 			base.Update (gameTime);
 		}
 
