@@ -97,16 +97,16 @@ namespace Lab11
 		protected override void Update (GameTime gameTime)
 		{
 			// TODO: Add your update logic here	
-			MouseState mouseState = Mouse.GetState();
+			//MouseState mouseState = Mouse.GetState();
 			bear.Update();
 			explosion.Update(gameTime);	
-			if (bear.Active && 
-				mouseState.LeftButton == ButtonState.Pressed &&
-				bear.DrawRectangle.Contains (mouseState.X, mouseState.Y))
-			{
-				bear.Active = false;
-				explosion.Play(bear.DrawRectangle.Center.X, bear.DrawRectangle.Center.Y);
-			}
+			//if (bear.Active && 
+			//	mouseState.LeftButton == ButtonState.Pressed &&
+			//	bear.DrawRectangle.Contains (mouseState.X, mouseState.Y))
+			//{
+			//	bear.Active = false;
+			//	explosion.Play(bear.DrawRectangle.Center.X, bear.DrawRectangle.Center.Y);
+			//}
 
 			base.Update (gameTime);
 		}
