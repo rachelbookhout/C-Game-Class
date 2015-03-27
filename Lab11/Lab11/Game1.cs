@@ -36,13 +36,14 @@ namespace Lab11
 		GraphicsDeviceManager graphics;
 		SpriteBatch spriteBatch;
 		TeddyBear bear;
+		TeddyBear bear1;
 		Explosion explosion;
 		Random random = new Random();
-		Texture2D teddybear;
-		Texture2D boom;
+
 		int x;
 		int y;
-		MouseState mouseState;
+		//MouseState mouseState;
+
 		#endregion
 
 		#region Initialization
@@ -107,7 +108,39 @@ namespace Lab11
 			//	bear.Active = false;
 			//	explosion.Play(bear.DrawRectangle.Center.X, bear.DrawRectangle.Center.Y);
 			//}
+			Rectangle rectangleBear = bear.DrawRectangle;
 
+
+			// spawn new bear if A is pressed
+			KeyboardState keyboard = Keyboard.GetState();
+			if (keyboard.IsKeyDown(Keys.A))
+			{
+				// Load Teddybear
+				int speedX = random.Next(-5, 5);
+				int speedY = random.Next(-5, 5);
+				Vector2 bearVector = new Vector2(speedX, speedY);
+				bear = new TeddyBear(Content, WINDOW_WIDTH, WINDOW_HEIGHT, "teddybear0", WINDOW_WIDTH / 2, WINDOW_HEIGHT / 2, bearVector);
+			}
+
+			// explode bear if B is pressed
+			if (keyboard.IsKeyDown (Keys.B)) {
+				// set explosion location
+				int explosionX = rectangleBear.X + (rectangleBear.Width / 2);
+				int explosionY = rectangleBear.Y + (rectangleBear.Height / 2);
+
+				// explode bear
+				explosion.Play (bear.DrawRectangle.Center.X, bear.DrawRectangle.Center.Y);
+				bear.Active = false;
+			}
+			else if(!bear.Active){
+
+				// Load bear
+				int speedX = random.Next(-5, 5);
+				int speedY = random.Next(-5, 5);
+				Vector2 bear1Vector = new Vector2(speedX, speedY);
+				bear1 = new TeddyBear(Content, WINDOW_WIDTH, WINDOW_HEIGHT, "teddybear1", WINDOW_WIDTH / 2, WINDOW_HEIGHT / 2, bear1Vector);
+			}
+			
 			base.Update (gameTime);
 		}
 
