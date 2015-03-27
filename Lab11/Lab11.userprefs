@@ -1,1 +1,25 @@
-﻿<Properties MonoDevelop.MonoMac.LastXamMacNagTime="3/23/2015 9:03:20 PM" />
+﻿<Properties MonoDevelop.MonoMac.LastXamMacNagTime="3/23/2015 9:03:20 PM" StartupItem="Lab11/Lab11.csproj">
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="Lab11/Game1.cs">
+    <Files>
+      <File FileName="Lab11/Game1.cs" Line="139" Column="24" />
+      <File FileName="Lab11/TeddyBear.cs" Line="113" Column="32" />
+      <File FileName="Lab11/Explosion.cs" Line="1" Column="1" />
+      <File FileName="../../../Downloads/8.4.OsxMonoGameXnaControllerButtonProcessing/XNAControllerInput/Game1.cs" Line="41" Column="31" />
+    </Files>
+    <Pads>
+      <Pad Id="ProjectPad">
+        <State expanded="True">
+          <Node name="Lab11" expanded="True">
+            <Node name="Assets" expanded="True" />
+            <Node name="Game1.cs" selected="True" />
+          </Node>
+        </State>
+      </Pad>
+    </Pads>
+  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore />
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+</Properties>
