@@ -25,6 +25,8 @@ namespace ProgrammingAssignment4
         // teddy support
         Texture2D teddySprite;
         Teddy teddy;
+		Vector2 centerLocation = new Vector2(
+			WINDOW_WIDTH / 2, WINDOW_HEIGHT / 2);
 		MouseState mouse;
         // pickup support
         Texture2D pickupSprite;
@@ -38,7 +40,6 @@ namespace ProgrammingAssignment4
         {
             graphics = new GraphicsDeviceManager(this);
             Content.RootDirectory = "Assets";
-
             // STUDENTS: set resolution and make mouse visible
 			graphics.PreferredBackBufferWidth = WINDOW_WIDTH;
 			graphics.PreferredBackBufferHeight = WINDOW_HEIGHT;
@@ -69,9 +70,10 @@ namespace ProgrammingAssignment4
         {
             // Create a new SpriteBatch, which can be used to draw textures.
             spriteBatch = new SpriteBatch(GraphicsDevice);
+		    teddySprite = Content.Load<Texture2D>("teddybear");
 
             // STUDENTS: load teddy and pickup sprites
-
+			teddy = new Teddy(teddySprite, centerLocation); 
 
             // STUDENTS: create teddy object centered in window
 
@@ -157,7 +159,7 @@ namespace ProgrammingAssignment4
 
             // STUDENTS: Uncomment the following line AFTER you create
             // a teddy object in the LoadContent method
-            //teddy.Draw(spriteBatch);
+            teddy.Draw(spriteBatch);
             foreach (Pickup pickup in pickups)
             {
                 pickup.Draw(spriteBatch);

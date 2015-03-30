@@ -48,10 +48,11 @@ namespace ProgrammingAssignment4
             this.location = location;
 
             // STUDENTS: set draw rectangle so teddy is centered on location
-
+			drawRectangle = new Rectangle(((int)location.X - (sprite.Width / 2)), ((int)location.Y - (sprite.Height / 2)), sprite.Width, sprite.Height);
 
             // STUDENTS: set halfDrawRectangleWidth and halfDrawRectangleHeight for efficiency
-
+			halfDrawRectangleWidth = 400;
+			halfDrawRectangleHeight = 400;
         }
 
         #endregion
@@ -132,7 +133,7 @@ namespace ProgrammingAssignment4
         public void Draw(SpriteBatch spriteBatch)
         {
             // STUDENTS: use the sprite batch to draw the teddy
-
+			spriteBatch.Draw(sprite, drawRectangle, Color.White);
         }
 
         /// <summary>
