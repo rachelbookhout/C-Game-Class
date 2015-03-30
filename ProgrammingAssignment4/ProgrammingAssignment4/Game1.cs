@@ -25,7 +25,7 @@ namespace ProgrammingAssignment4
         // teddy support
         Texture2D teddySprite;
         Teddy teddy;
-
+		MouseState mouse;
         // pickup support
         Texture2D pickupSprite;
         List<Pickup> pickups = new List<Pickup>();
@@ -37,9 +37,14 @@ namespace ProgrammingAssignment4
         public Game1()
         {
             graphics = new GraphicsDeviceManager(this);
-            Content.RootDirectory = "Content";
+            Content.RootDirectory = "Assets";
 
             // STUDENTS: set resolution and make mouse visible
+			graphics.PreferredBackBufferWidth = WINDOW_WIDTH;
+			graphics.PreferredBackBufferHeight = WINDOW_HEIGHT;
+			IsMouseVisible = true;
+			graphics.IsFullScreen = false;
+
 
         }
 
@@ -89,8 +94,8 @@ namespace ProgrammingAssignment4
         protected override void Update(GameTime gameTime)
         {
             // Allows the game to exit
-            if (GamePad.GetState(PlayerIndex.One).Buttons.Back == ButtonState.Pressed)
-                this.Exit();
+            //if (GamePad.GetState(PlayerIndex.One).Buttons.Back == ButtonState.Pressed)
+              //  this.Exit();
 
             // STUDENTS: get current mouse state and update teddy
             MouseState mouse = Mouse.GetState();
