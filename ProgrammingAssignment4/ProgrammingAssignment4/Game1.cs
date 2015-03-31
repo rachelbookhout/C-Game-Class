@@ -124,9 +124,11 @@ namespace ProgrammingAssignment4
 					pickups.Add(new Pickup(pickupSprite, offCenter));
 
                     //// STUDENTS: if this is the first pickup in the list, set teddy target
-					//if (pickups.Count == 1){
-					//	teddy.SetTarget;
-					//}
+					if (pickups.Count == 1)
+					{
+						teddy.SetTarget(new Vector2(pickups[0].CollisionRectangle.Center.X, pickups[0].CollisionRectangle.Center.Y));
+					}
+					teddy.Update(gameTime, mouse);
                 }
             }
 

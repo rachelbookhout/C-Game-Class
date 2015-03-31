@@ -147,6 +147,10 @@ namespace ProgrammingAssignment4
             // distances in x and y between the target and the teddy. Make sure to
             // normalize the vector, then multiply the vector by the teddy's base
             // speed
+			Vector2 distance = target - location;
+			// now you can normalize the distance vector and multiply by the BASE_SPEED
+			distance.Normalize();
+			distance = distance * BASE_SPEED;
 
         }
 
