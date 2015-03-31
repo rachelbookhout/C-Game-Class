@@ -27,7 +27,7 @@ namespace ProgrammingAssignment4
         Teddy teddy;
 		Vector2 centerLocation = new Vector2(
 			WINDOW_WIDTH / 2, WINDOW_HEIGHT / 2);
-		MouseState mouse;
+		Vector2 offCenter = new Vector2(WINDOW_WIDTH/4, WINDOW_HEIGHT/2);
         // pickup support
         Texture2D pickupSprite;
         List<Pickup> pickups = new List<Pickup>();
@@ -71,7 +71,7 @@ namespace ProgrammingAssignment4
             // Create a new SpriteBatch, which can be used to draw textures.
             spriteBatch = new SpriteBatch(GraphicsDevice);
 		    teddySprite = Content.Load<Texture2D>("teddybear");
-
+			pickupSprite = Content.Load<Texture2D> ("pickup");
             // STUDENTS: load teddy and pickup sprites
 			teddy = new Teddy(teddySprite, centerLocation); 
 
@@ -118,11 +118,15 @@ namespace ProgrammingAssignment4
                 {
                     rightClickStarted = false;
 
+					// Add parts to the list.
+
                     // STUDENTS: add a new pickup to the end of the list of pickups
+					pickups.Add(new Pickup(pickupSprite, offCenter));
 
-
-                    // STUDENTS: if this is the first pickup in the list, set teddy target
-
+                    //// STUDENTS: if this is the first pickup in the list, set teddy target
+					//if (pickups.Count == 1){
+					//	teddy.SetTarget;
+					//}
                 }
             }
 
