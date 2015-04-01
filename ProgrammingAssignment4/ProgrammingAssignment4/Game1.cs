@@ -137,9 +137,9 @@ namespace ProgrammingAssignment4
             // LoadContent method
             // check for collision between collecting teddy and targeted pickup
             if (true)
-            //if (teddy.Collecting &&
-            //     pickups.Count > 0 &&
-            //     teddy.CollisionRectangle.Intersects(pickups[0].CollisionRectangle))
+            if (teddy.Collecting &&
+                 pickups.Count > 0 &&
+                 teddy.CollisionRectangle.Intersects(pickups[0].CollisionRectangle))
             {
                 // STUDENTS: remove targeted pickup from list (it's always at location 0)
 
