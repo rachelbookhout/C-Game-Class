@@ -101,7 +101,7 @@ namespace ProgrammingAssignment4
 
             // STUDENTS: get current mouse state and update teddy
             MouseState mouse = Mouse.GetState();
-
+			teddy.Update (gameTime, mouse);
             // check for right click started
             if (mouse.RightButton == ButtonState.Pressed &&
                 rightButtonReleased)
@@ -126,9 +126,8 @@ namespace ProgrammingAssignment4
                     //// STUDENTS: if this is the first pickup in the list, set teddy target
 					if (pickups.Count == 1)
 					{
-						teddy.SetTarget(new Vector2(pickups[0].CollisionRectangle.Center.X, pickups[0].CollisionRectangle.Center.Y));
+						teddy.SetTarget(new Vector2(mouse.X, mouse.Y));
 					}
-					teddy.Update(gameTime, mouse);
                 }
             }
 

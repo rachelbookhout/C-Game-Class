@@ -94,7 +94,13 @@ namespace ProgrammingAssignment4
             // centered on the location vector
             // This gives us accurate movement toward the target so we don't miss
             // the target due to rounding error
-
+			if (collecting)
+			{
+				location.X += velocity.X * gameTime.ElapsedGameTime.Milliseconds;
+				location.Y += velocity.Y * gameTime.ElapsedGameTime.Milliseconds;
+				drawRectangle.X = (int)location.X - halfDrawRectangleWidth;
+				drawRectangle.Y = (int)location.Y - halfDrawRectangleHeight;
+			}
 
             // check for mouse over teddy
             if (drawRectangle.Contains(mouse.X, mouse.Y))
@@ -147,10 +153,10 @@ namespace ProgrammingAssignment4
             // distances in x and y between the target and the teddy. Make sure to
             // normalize the vector, then multiply the vector by the teddy's base
             // speed
-			Vector2 distance = target - location;
+			velocity = new Vector2(target.X - location.X, target.Y - location.Y);
 			// now you can normalize the distance vector and multiply by the BASE_SPEED
-			distance.Normalize();
-			distance = distance * BASE_SPEED;
+			velocity.Normalize();
+			velocity *= BASE_SPEED;
 
         }
 
