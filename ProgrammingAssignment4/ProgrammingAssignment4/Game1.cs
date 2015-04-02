@@ -121,7 +121,7 @@ namespace ProgrammingAssignment4
 					// Add parts to the list.
 
                     // STUDENTS: add a new pickup to the end of the list of pickups
-					pickups.Add(new Pickup(pickupSprite, offCenter));
+					pickups.Add(new Pickup(pickupSprite, new Vector2(mouse.X, mouse.Y)));
 
                     //// STUDENTS: if this is the first pickup in the list, set teddy target
 					if (pickups.Count == 1)
