@@ -23,7 +23,6 @@
     <UseSGen>false</UseSGen>
     <IncludeMonoRuntime>false</IncludeMonoRuntime>
     <EnablePackageSigning>false</EnablePackageSigning>
-    <CodeSigningKey>Mac Developer</CodeSigningKey>
     <EnableCodeSigning>false</EnableCodeSigning>
     <CreatePackage>false</CreatePackage>
   </PropertyGroup>
@@ -105,7 +104,6 @@
     <Compile Include="TeddyBear.cs" />
   </ItemGroup>
   <ItemGroup>
-    <BundleResource Include="Assets\logo.png" />
     <BundleResource Include="Assets\burger.png" />
     <BundleResource Include="Assets\explosion.png" />
     <BundleResource Include="Assets\frenchfries.png" />
