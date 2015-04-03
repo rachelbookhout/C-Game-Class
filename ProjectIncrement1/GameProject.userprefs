@@ -1,6 +1,11 @@
-﻿<Properties MonoDevelop.MonoMac.LastXamMacNagTime="3/23/2015 5:30:05 PM" StartupItem="ProjectIncrement1/GameProject.csproj">
+﻿<Properties MonoDevelop.MonoMac.LastXamMacNagTime="4/3/2015 1:32:29 AM" StartupItem="ProjectIncrement1/GameProject.csproj">
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
-  <MonoDevelop.Ide.Workbench />
+  <MonoDevelop.Ide.Workbench ActiveDocument="ProjectIncrement1/Game1.cs">
+    <Files>
+      <File FileName="ProjectIncrement1/Burger.cs" Line="129" Column="5" />
+      <File FileName="ProjectIncrement1/Game1.cs" Line="132" Column="35" />
+    </Files>
+  </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
     <BreakpointStore />
   </MonoDevelop.Ide.DebuggingService.Breakpoints>

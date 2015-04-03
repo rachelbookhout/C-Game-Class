@@ -1,1 +1,24 @@
-﻿<Properties StartupItem="ProgrammingAssignment4/ProgrammingAssignment4.csproj" />
+﻿<Properties StartupItem="ProgrammingAssignment4/ProgrammingAssignment4.csproj">
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="ProgrammingAssignment4/Game1.cs">
+    <Files>
+      <File FileName="ProgrammingAssignment4/Game1.cs" Line="133" Column="4" />
+      <File FileName="ProgrammingAssignment4/Teddy.cs" Line="159" Column="27" />
+      <File FileName="ProgrammingAssignment4/Pickup.cs" Line="46" Column="56" />
+    </Files>
+    <Pads>
+      <Pad Id="ProjectPad">
+        <State expanded="True">
+          <Node name="ProgrammingAssignment4" expanded="True">
+            <Node name="Assets" expanded="True" />
+            <Node name="Game1.cs" selected="True" />
+          </Node>
+        </State>
+      </Pad>
+    </Pads>
+  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore />
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+</Properties>

@@ -72,6 +72,7 @@ namespace GameProject
 			// set resolution
 			graphics.PreferredBackBufferWidth = GameConstants.WINDOW_WIDTH;
 			graphics.PreferredBackBufferHeight = GameConstants.WINDOW_HEIGHT;
+			IsMouseVisible = true;
 		}
 
 		/// <summary>
@@ -127,7 +128,8 @@ namespace GameProject
 
 
 			// get current mouse state and update burger
-
+			MouseState mouse = Mouse.GetState();
+			burger.Update(gameTime, mouse);
 			// update other game objects
 			foreach (TeddyBear bear in bears)
 			{

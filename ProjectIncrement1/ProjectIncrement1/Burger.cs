@@ -124,7 +124,10 @@ namespace GameProject
         public void Update(GameTime gameTime, MouseState mouse)
         {
             // burger should only respond to input if it still has health
-
+			if (health > 0)
+			{
+				;
+			}
                 // move burger using mouse
 
                 // clamp burger in window
