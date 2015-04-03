@@ -21,6 +21,8 @@ namespace GameProject
         // graphic and drawing info
         Texture2D sprite;
         Rectangle drawRectangle;
+		public const int WINDOW_WIDTH = 800;
+		public const int WINDOW_HEIGHT = 600;
 
         // burger stats
         int health = 100;
@@ -126,12 +128,18 @@ namespace GameProject
             // burger should only respond to input if it still has health
 			if (health > 0)
 			{
-				;
+				// move burger using mouse
+				drawRectangle.X = mouse.X - drawRectangle.Width / 2;
+				drawRectangle.Y = mouse.Y - drawRectangle.Height / 2;
 			}
-                // move burger using mouse
 
                 // clamp burger in window
-
+			if (drawRectangle.Left < 0) {
+				drawRectangle.X = 0;
+			} else if (drawRectangle.Right > WINDOW_WIDTH) 
+			{
+				drawRectangle.X = WINDOW_WIDTH - drawRectangle.Width;
+			}
                 // update shooting allowed
                 // timer concept (for animations) introduced in Chapter 7
 
