@@ -103,7 +103,8 @@ namespace GameProject
 			burger = new Burger (Content,"burger",graphics.PreferredBackBufferWidth/2,graphics.PreferredBackBufferHeight * 7/8,null);
 			SpawnBear ();
 			// load projectile and explosion sprites
-
+			teddyBearProjectileSprite = Content.Load<Texture2D>("teddybearprojectile") ;
+			frenchFriesSprite = Content.Load<Texture2D>("frenchfries");
 			// add initial game objects
 
 			// set initial health and score strings
@@ -203,8 +204,15 @@ namespace GameProject
 		public static Texture2D GetProjectileSprite(ProjectileType type)
 		{
 			// replace with code to return correct projectile sprite based on projectile type
-			return frenchFriesSprite;
-		}
+			if (type == ProjectileType.FrenchFries) {
+				return frenchFriesSprite;
+			} else if (type == ProjectileType.TeddyBear) {
+				return teddyBearProjectileSprite;
+			} else 
+			{
+				return null;
+			}
+			}
 
 		/// <summary>
 		/// Adds the given projectile to the game
@@ -212,7 +220,7 @@ namespace GameProject
 		/// <param name="projectile">the projectile to add</param>
 		public static void AddProjectile(Projectile projectile)
 		{
-
+			projectiles.Add(projectile);
 		}
 
 		#endregion
