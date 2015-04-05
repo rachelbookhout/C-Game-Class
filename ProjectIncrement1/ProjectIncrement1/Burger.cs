@@ -23,6 +23,9 @@ namespace GameProject
         Rectangle drawRectangle;
 		public const int WINDOW_WIDTH = 800;
 		public const int WINDOW_HEIGHT = 600;
+		public const float FRENCH_FRIES_PROJECTILE_SPEED = 0.4f;
+		public const int FRENCH_FRIES_PROJECTILE_DAMAGE = 5;
+		public const int FRENCH_FRIES_PROJECTILE_OFFSET = 10;
 
         // burger stats
         int health = 100;
@@ -30,7 +33,8 @@ namespace GameProject
         // shooting support
         bool canShoot = true;
         int elapsedCooldownTime = 0;
-
+		bool leftClickStarted = false;
+		bool leftButtonReleased = true;
         // sound effect
         SoundEffect shootSound;
 
@@ -141,7 +145,18 @@ namespace GameProject
 				drawRectangle.X = WINDOW_WIDTH - drawRectangle.Width;
 			}
                 // update shooting allowed
-                // timer concept (for animations) introduced in Chapter 7
+			if (mouse.LeftButton == ButtonState.Pressed &&
+				leftButtonReleased)
+			{
+				leftClickStarted = true;
+				leftButtonReleased = false;
+			}        
+			if (leftClickStarted) 
+			{	
+				leftClickStarted = false;
+				Projectile projectile = new Projectile (ProjectileType.FrenchFries,Game1.GetProjectileSprite(ProjectileType.FrenchFries) ,drawRectangle.Center.X, drawRectangle.Center.Y - FRENCH_FRIES_PROJECTILE_OFFSET, FRENCH_FRIES_PROJECTILE_SPEED );
+			}
+			// timer concept (for animations) introduced in Chapter 7
 
                 // shoot if appropriate
 
