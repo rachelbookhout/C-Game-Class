@@ -18,6 +18,11 @@ namespace GameProject
 
         bool active = true;
         ProjectileType type;
+		public const int WINDOW_WIDTH = 800;
+		public const int WINDOW_HEIGHT = 600;
+		bool outsideWindow = false;
+
+
 
         // drawing support
         Texture2D sprite;
@@ -89,10 +94,32 @@ namespace GameProject
         public void Update(GameTime gameTime)
         {
             // move projectile
+			drawRectangle.Y += (int)(yVelocity * gameTime.ElapsedGameTime.Milliseconds);
 
-            // check for outside game window
+			if (drawRectangle.Left > WINDOW_WIDTH )
+			{
+				outsideWindow = true;
+			}
+			else if (drawRectangle.Right < 0)
+			{
+				outsideWindow = true;
+			}
+			else if (drawRectangle.Top > WINDOW_HEIGHT)
+			{
+				outsideWindow = true;
+			}
+			else if (drawRectangle.Bottom < 0)
+			{
+				outsideWindow = true;
+			}
+			else
+			{
+				outsideWindow = false;
 
-        }
+			}
+		}
+
+        
 
         /// <summary>
         /// Draws the projectile
