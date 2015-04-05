@@ -107,10 +107,12 @@ namespace GameProject
 			else if (drawRectangle.Top > WINDOW_HEIGHT)
 			{
 				outsideWindow = true;
+				active = false;
 			}
 			else if (drawRectangle.Bottom < 0)
 			{
 				outsideWindow = true;
+				active = false;
 			}
 			else
 			{
