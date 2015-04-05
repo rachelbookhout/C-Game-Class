@@ -155,6 +155,7 @@ namespace GameProject
 			{	
 				leftClickStarted = false;
 				Projectile projectile = new Projectile (ProjectileType.FrenchFries,Game1.GetProjectileSprite(ProjectileType.FrenchFries) ,drawRectangle.Center.X, drawRectangle.Center.Y - FRENCH_FRIES_PROJECTILE_OFFSET, FRENCH_FRIES_PROJECTILE_SPEED );
+				Game1.AddProjectile (projectile);
 			}
 			// timer concept (for animations) introduced in Chapter 7
 
