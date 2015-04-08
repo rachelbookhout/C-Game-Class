@@ -8,10 +8,10 @@ namespace Lab13a
 		{
 			
 
-					for (int i = 1; i <= 5; i++)
-					{
-						Console.WriteLine(i);
-					}
+			for (int i = 1; i <= 5; i++)
+			{
+				Console.WriteLine(i);
+			}
 
 			for (int i = 5; 0 < i; i--)
 			{
