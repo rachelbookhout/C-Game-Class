@@ -1,4 +1,6 @@
 ﻿using System;
+using System.Collections.Generic;
+using ConsoleCards;
 
 namespace Lab13
 {
@@ -6,7 +8,24 @@ namespace Lab13
 	{
 		public static void Main (string[] args)
 		{
-			Console.WriteLine ("Hello World!");
+			Deck deck = new Deck();
+			List <Card> hand = new List <Card> ();
+			deck.Shuffle ();
+
+				for (int i = 1; i <= 5; i++)
+				{
+				hand.Add (deck.TakeTopCard ());
+				}
+			for (int i = 4; i > -1; i--)
+			{
+				hand[i].FlipOver();
+			}
+
+			foreach (Card card in hand)
+			{
+				card.Print();
+			}
+		
 		}
 	}
 }
