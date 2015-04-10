@@ -6,7 +6,9 @@ namespace Lab14
 	{
 		public static void Main (string[] args)
 		{
-			Console.WriteLine ("Hello World!");
+			Console.WriteLine ("Pick a number");
+			float choice = Console.ReadLine ();
+
 		}
 	}
 }
