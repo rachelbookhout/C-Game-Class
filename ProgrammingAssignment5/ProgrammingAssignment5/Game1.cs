@@ -40,6 +40,8 @@ namespace ProgrammingAssignment5
 		const int WINDOW_HEIGHT = 600;
 		Texture2D mineSprite;
 		List<Mine> mines = new List<Mine>();
+		bool leftClickStarted = false;
+		bool leftButtonReleased = true;
 		#endregion
 
 		#region Initialization
@@ -94,7 +96,19 @@ namespace ProgrammingAssignment5
 		protected override void Update (GameTime gameTime)
 		{
 			// TODO: Add your update logic here			
-            		
+			MouseState mouse = Mouse.GetState();
+			//when left click is released, add mine to list of mines
+			if (mouse.LeftButton == ButtonState.Pressed && leftButtonReleased) {
+				leftClickStarted = true;
+				leftButtonReleased = false;
+			} else if (mouse.LeftButton == ButtonState.Released) 
+			{
+				leftButtonReleased = true;
+			}
+			if (leftClickStarted) {
+				leftClickStarted = false;
+				mines.Add (new Mine (mineSprite,mouse.X, mouse.Y));
+			}
 			base.Update (gameTime);
 		}
 
@@ -109,8 +123,10 @@ namespace ProgrammingAssignment5
 
 			spriteBatch.Begin ();
 
-			// draw the logo
-
+			// draw mines
+			foreach (Mine mine in mines) {
+				mine.Draw (spriteBatch);
+			}
 			spriteBatch.End ();
 
 			//TODO: Add your drawing code here
