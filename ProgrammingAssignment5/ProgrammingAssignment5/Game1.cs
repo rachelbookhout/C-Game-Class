@@ -35,11 +35,15 @@ namespace ProgrammingAssignment5
 
 		GraphicsDeviceManager graphics;
 		SpriteBatch spriteBatch;
-		Texture2D logoTexture;
 		const int WINDOW_WIDTH = 800;
 		const int WINDOW_HEIGHT = 600;
 		Texture2D mineSprite;
 		List<Mine> mines = new List<Mine>();
+		Texture2D teddySprite;
+		List<TeddyBear> bears = new List<TeddyBear>();
+		float timeuntilnextspawn;
+		float timesincelastspawn;
+		Random rand = new Random();
 		bool leftClickStarted = false;
 		bool leftButtonReleased = true;
 		#endregion
@@ -81,6 +85,7 @@ namespace ProgrammingAssignment5
 			// Create a new SpriteBatch, which can be use to draw textures.
 			spriteBatch = new SpriteBatch (graphics.GraphicsDevice);
 			mineSprite = Content.Load<Texture2D> ("mine");
+			teddySprite = Content.Load<Texture2D> ("teddybear");
 			// TODO: use this.Content to load your game content here eg.
 		}
 
