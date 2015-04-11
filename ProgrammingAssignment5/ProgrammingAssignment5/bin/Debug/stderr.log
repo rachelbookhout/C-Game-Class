@@ -1,0 +1,56 @@
+
+Unhandled Exception:
+Microsoft.Xna.Framework.Content.ContentLoadException: Could not load logo asset as a non-content file! ---> Microsoft.Xna.Framework.Content.ContentLoadException: The content file was not found. ---> System.IO.FileNotFoundException: Could not find file "/Users/rachelbookhout/Projects/c#course/ProgrammingAssignment5/ProgrammingAssignment5/bin/Debug/ProgrammingAssignment5.app/Contents/Resources/Assets/logo.xnb".
+File name: '/Users/rachelbookhout/Projects/c#course/ProgrammingAssignment5/ProgrammingAssignment5/bin/Debug/ProgrammingAssignment5.app/Contents/Resources/Assets/logo.xnb'
+  at System.IO.FileStream..ctor (System.String path, FileMode mode, FileAccess access, FileShare share, Int32 bufferSize, Boolean anonymous, FileOptions options) [0x00000] in <filename unknown>:0 
+  at System.IO.FileStream..ctor (System.String path, FileMode mode, FileAccess access, FileShare share) [0x00000] in <filename unknown>:0 
+  at (wrapper remoting-invoke-with-check) System.IO.FileStream:.ctor (string,System.IO.FileMode,System.IO.FileAccess,System.IO.FileShare)
+  at System.IO.File.OpenRead (System.String path) [0x00000] in <filename unknown>:0 
+  at Microsoft.Xna.Framework.TitleContainer.OpenStream (System.String name) [0x00000] in <filename unknown>:0 
+  at Microsoft.Xna.Framework.Content.ContentManager.OpenStream (System.String assetName) [0x00000] in <filename unknown>:0 
+  --- End of inner exception stack trace ---
+  at Microsoft.Xna.Framework.Content.ContentManager.OpenStream (System.String assetName) [0x00000] in <filename unknown>:0 
+  at Microsoft.Xna.Framework.Content.ContentManager.ReadAsset[Texture2D] (System.String assetName, System.Action`1 recordDisposableObject) [0x00000] in <filename unknown>:0 
+  --- End of inner exception stack trace ---
+at Microsoft.Xna.Framework.Content.ContentManager.ReadAsset<Microsoft.Xna.Framework.Graphics.Texture2D> (string,System.Action`1<System.IDisposable>) <0x0048f>
+at Microsoft.Xna.Framework.Content.ContentManager.Load<Microsoft.Xna.Framework.Graphics.Texture2D> (string) <0x000ef>
+at ProgrammingAssignment5.Game1.LoadContent () <0x00073>
+at Microsoft.Xna.Framework.Game.Initialize () <0x000e6>
+at ProgrammingAssignment5.Game1.Initialize () <0x00013>
+at Microsoft.Xna.Framework.Game.DoInitialize () <0x00026>
+at Microsoft.Xna.Framework.Game.Run (Microsoft.Xna.Framework.GameRunBehavior) <0x0003b>
+at Microsoft.Xna.Framework.Game.Run () <0x00027>
+at ProgrammingAssignment5.AppDelegate.FinishedLaunching (MonoMac.Foundation.NSObject) <0x00033>
+at (wrapper dynamic-method) object.[ProgrammingAssignment5.AppDelegate.Void FinishedLaunching(MonoMac.Foundation.NSObject)] (MonoMac.Foundation.NSObject,MonoMac.ObjCRuntime.Selector,MonoMac.Foundation.NSObject) <0x00036>
+at (wrapper native-to-managed) object.[ProgrammingAssignment5.AppDelegate.Void FinishedLaunching(MonoMac.Foundation.NSObject)] (MonoMac.Foundation.NSObject,MonoMac.ObjCRuntime.Selector,MonoMac.Foundation.NSObject) <0x00103>
+at (wrapper managed-to-native) MonoMac.AppKit.NSApplication.NSApplicationMain (int,string[]) <0x00012>
+at MonoMac.AppKit.NSApplication.Main (string[]) <0x0008f>
+at ProgrammingAssignment5.Program.Main (string[]) <0x00073>
+
+[ERROR] FATAL UNHANDLED EXCEPTION: Microsoft.Xna.Framework.Content.ContentLoadException: Could not load logo asset as a non-content file! ---> Microsoft.Xna.Framework.Content.ContentLoadException: The content file was not found. ---> System.IO.FileNotFoundException: Could not find file "/Users/rachelbookhout/Projects/c#course/ProgrammingAssignment5/ProgrammingAssignment5/bin/Debug/ProgrammingAssignment5.app/Contents/Resources/Assets/logo.xnb".
+File name: '/Users/rachelbookhout/Projects/c#course/ProgrammingAssignment5/ProgrammingAssignment5/bin/Debug/ProgrammingAssignment5.app/Contents/Resources/Assets/logo.xnb'
+  at System.IO.FileStream..ctor (System.String path, FileMode mode, FileAccess access, FileShare share, Int32 bufferSize, Boolean anonymous, FileOptions options) [0x00000] in <filename unknown>:0 
+  at System.IO.FileStream..ctor (System.String path, FileMode mode, FileAccess access, FileShare share) [0x00000] in <filename unknown>:0 
+  at (wrapper remoting-invoke-with-check) System.IO.FileStream:.ctor (string,System.IO.FileMode,System.IO.FileAccess,System.IO.FileShare)
+  at System.IO.File.OpenRead (System.String path) [0x00000] in <filename unknown>:0 
+  at Microsoft.Xna.Framework.TitleContainer.OpenStream (System.String name) [0x00000] in <filename unknown>:0 
+  at Microsoft.Xna.Framework.Content.ContentManager.OpenStream (System.String assetName) [0x00000] in <filename unknown>:0 
+  --- End of inner exception stack trace ---
+  at Microsoft.Xna.Framework.Content.ContentManager.OpenStream (System.String assetName) [0x00000] in <filename unknown>:0 
+  at Microsoft.Xna.Framework.Content.ContentManager.ReadAsset[Texture2D] (System.String assetName, System.Action`1 recordDisposableObject) [0x00000] in <filename unknown>:0 
+  --- End of inner exception stack trace ---
+at Microsoft.Xna.Framework.Content.ContentManager.ReadAsset<Microsoft.Xna.Framework.Graphics.Texture2D> (string,System.Action`1<System.IDisposable>) <0x0048f>
+at Microsoft.Xna.Framework.Content.ContentManager.Load<Microsoft.Xna.Framework.Graphics.Texture2D> (string) <0x000ef>
+at ProgrammingAssignment5.Game1.LoadContent () <0x00073>
+at Microsoft.Xna.Framework.Game.Initialize () <0x000e6>
+at ProgrammingAssignment5.Game1.Initialize () <0x00013>
+at Microsoft.Xna.Framework.Game.DoInitialize () <0x00026>
+at Microsoft.Xna.Framework.Game.Run (Microsoft.Xna.Framework.GameRunBehavior) <0x0003b>
+at Microsoft.Xna.Framework.Game.Run () <0x00027>
+at ProgrammingAssignment5.AppDelegate.FinishedLaunching (MonoMac.Foundation.NSObject) <0x00033>
+at (wrapper dynamic-method) object.[ProgrammingAssignment5.AppDelegate.Void FinishedLaunching(MonoMac.Foundation.NSObject)] (MonoMac.Foundation.NSObject,MonoMac.ObjCRuntime.Selector,MonoMac.Foundation.NSObject) <0x00036>
+at (wrapper native-to-managed) object.[ProgrammingAssignment5.AppDelegate.Void FinishedLaunching(MonoMac.Foundation.NSObject)] (MonoMac.Foundation.NSObject,MonoMac.ObjCRuntime.Selector,MonoMac.Foundation.NSObject) <0x00103>
+at (wrapper managed-to-native) MonoMac.AppKit.NSApplication.NSApplicationMain (int,string[]) <0x00012>
+at MonoMac.AppKit.NSApplication.Main (string[]) <0x0008f>
+at ProgrammingAssignment5.Program.Main (string[]) <0x00073>
+

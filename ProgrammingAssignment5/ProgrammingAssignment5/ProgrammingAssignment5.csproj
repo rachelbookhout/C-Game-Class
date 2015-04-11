@@ -23,7 +23,6 @@
     <UseSGen>false</UseSGen>
     <IncludeMonoRuntime>false</IncludeMonoRuntime>
     <EnablePackageSigning>false</EnablePackageSigning>
-    <CodeSigningKey>Mac Developer</CodeSigningKey>
     <EnableCodeSigning>false</EnableCodeSigning>
     <CreatePackage>false</CreatePackage>
   </PropertyGroup>
@@ -95,14 +94,18 @@
     <ImageAsset Include="Assets\logo.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </ImageAsset>
-    <ImageAsset Include="Assets\explosion.png">
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Assets\mine.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </ImageAsset>
-    <ImageAsset Include="Assets\mine.png">
+    </Content>
+    <Content Include="Assets\explosion.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </ImageAsset>
-    <ImageAsset Include="Assets\teddybear.png">
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Assets\teddybear.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </ImageAsset>
+    </EmbeddedResource>
   </ItemGroup>
 </Project>

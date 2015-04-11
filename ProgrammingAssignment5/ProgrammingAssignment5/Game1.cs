@@ -18,6 +18,8 @@ using Microsoft.Xna.Framework.Input.Touch;
 using Microsoft.Xna.Framework.Storage;
 using Microsoft.Xna.Framework.Content;
 using Microsoft.Xna.Framework.Media;
+using System.Collections.Generic;
+using TeddyMineExplosion;
 
 #endregion
 
@@ -34,7 +36,10 @@ namespace ProgrammingAssignment5
 		GraphicsDeviceManager graphics;
 		SpriteBatch spriteBatch;
 		Texture2D logoTexture;
-
+		const int WINDOW_WIDTH = 800;
+		const int WINDOW_HEIGHT = 600;
+		Texture2D mineSprite;
+		List<Mine> mines = new List<Mine>();
 		#endregion
 
 		#region Initialization
@@ -47,6 +52,13 @@ namespace ProgrammingAssignment5
 			Content.RootDirectory = "Assets";
 
 			graphics.IsFullScreen = false;
+			graphics.PreferredBackBufferWidth = WINDOW_WIDTH;
+			graphics.PreferredBackBufferHeight = WINDOW_HEIGHT;
+			IsMouseVisible = true;
+
+
+		
+
 		}
 
 		/// <summary>
@@ -66,7 +78,7 @@ namespace ProgrammingAssignment5
 		{
 			// Create a new SpriteBatch, which can be use to draw textures.
 			spriteBatch = new SpriteBatch (graphics.GraphicsDevice);
-			
+			mineSprite = Content.Load<Texture2D> ("mine");
 			// TODO: use this.Content to load your game content here eg.
 			logoTexture = Content.Load<Texture2D> ("logo");
 		}
