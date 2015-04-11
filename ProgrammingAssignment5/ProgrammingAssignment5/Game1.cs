@@ -80,7 +80,6 @@ namespace ProgrammingAssignment5
 			spriteBatch = new SpriteBatch (graphics.GraphicsDevice);
 			mineSprite = Content.Load<Texture2D> ("mine");
 			// TODO: use this.Content to load your game content here eg.
-			logoTexture = Content.Load<Texture2D> ("logo");
 		}
 
 		#endregion
@@ -111,7 +110,6 @@ namespace ProgrammingAssignment5
 			spriteBatch.Begin ();
 
 			// draw the logo
-			spriteBatch.Draw (logoTexture, new Vector2 (130, 200), Color.White);
 
 			spriteBatch.End ();
 
