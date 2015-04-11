@@ -1,0 +1,5 @@
+/Users/rachelbookhout/Projects/c#course/Lab14/Lab14/obj/x86/Debug/.NETFramework,Version=v4.5.AssemblyAttribute.cs
+/Users/rachelbookhout/Projects/c#course/Lab14/Lab14/bin/Debug/Lab14.exe.mdb
+/Users/rachelbookhout/Projects/c#course/Lab14/Lab14/bin/Debug/Lab14.exe
+/Users/rachelbookhout/Projects/c#course/Lab14/Lab14/obj/x86/Debug/Lab14.exe
+/Users/rachelbookhout/Projects/c#course/Lab14/Lab14/obj/x86/Debug/Lab14.exe.mdb
