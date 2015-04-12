@@ -120,7 +120,9 @@ namespace ProgrammingAssignment5
 					//	get a new random delay for timeuntilnextspawn
 					timeuntilnextspawn = rand.Next(1000,3000);	
 			}
-
+			foreach (TeddyBear bear in bears){
+				bear.Update(gameTime);
+			}
 
 
 			//when left click is released, add mine to list of mines
