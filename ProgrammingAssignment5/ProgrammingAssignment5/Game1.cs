@@ -46,6 +46,7 @@ namespace ProgrammingAssignment5
 		Random rand = new Random();
 		bool leftClickStarted = false;
 		bool leftButtonReleased = true;
+		TeddyBear teddy;
 		#endregion
 
 		#region Initialization
@@ -86,6 +87,8 @@ namespace ProgrammingAssignment5
 			spriteBatch = new SpriteBatch (graphics.GraphicsDevice);
 			mineSprite = Content.Load<Texture2D> ("mine");
 			teddySprite = Content.Load<Texture2D> ("teddybear");
+			int randomNumber = rand.Next(1000,3000);
+
 			// TODO: use this.Content to load your game content here eg.
 		}
 
@@ -102,6 +105,24 @@ namespace ProgrammingAssignment5
 		{
 			// TODO: Add your update logic here			
 			MouseState mouse = Mouse.GetState();
+			//     add the elapsed time since the last update to timesincelastspawn
+			timesincelastspawn += gameTime.ElapsedGameTime.Milliseconds;
+			//check if timesincelastspawn > timeuntilnextspawn and if it is (time for another bear)
+			if (timesincelastspawn > timeuntilnextspawn)
+			{
+				//	spawn a new teddy bear (with a random velocity as described above) and add it to the list of teddy bears
+				Vector2 teddyVelocity = new Vector2((float)(rand.NextDouble() - 0.5), 
+					(float)(rand.NextDouble() - 0.5));
+				TeddyBear teddy = new TeddyBear(teddySprite,teddyVelocity,WINDOW_WIDTH,WINDOW_HEIGHT);
+				bears.Add (teddy);
+				//	set timesincelastspawn to 0
+				timesincelastspawn = 0;
+					//	get a new random delay for timeuntilnextspawn
+					timeuntilnextspawn = rand.Next(1000,3000);	
+			}
+
+
+
 			//when left click is released, add mine to list of mines
 			if (mouse.LeftButton == ButtonState.Pressed && leftButtonReleased) {
 				leftClickStarted = true;
@@ -131,6 +152,9 @@ namespace ProgrammingAssignment5
 			// draw mines
 			foreach (Mine mine in mines) {
 				mine.Draw (spriteBatch);
+			}
+			foreach (TeddyBear bear in bears) {
+				bear.Draw (spriteBatch);
 			}
 			spriteBatch.End ();
 
