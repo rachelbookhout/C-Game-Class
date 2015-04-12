@@ -41,6 +41,8 @@ namespace ProgrammingAssignment5
 		List<Mine> mines = new List<Mine>();
 		Texture2D teddySprite;
 		List<TeddyBear> bears = new List<TeddyBear>();
+		Texture2D explosionSprite;
+		List<Explosion> explosions= new List<Explosion>();
 		float timeuntilnextspawn;
 		float timesincelastspawn;
 		Random rand = new Random();
@@ -87,6 +89,7 @@ namespace ProgrammingAssignment5
 			spriteBatch = new SpriteBatch (graphics.GraphicsDevice);
 			mineSprite = Content.Load<Texture2D> ("mine");
 			teddySprite = Content.Load<Texture2D> ("teddybear");
+			explosionSprite = Content.Load<Texture2D>("explosion");
 			int randomNumber = rand.Next(1000,3000);
 
 			// TODO: use this.Content to load your game content here eg.
@@ -120,9 +123,7 @@ namespace ProgrammingAssignment5
 					//	get a new random delay for timeuntilnextspawn
 					timeuntilnextspawn = rand.Next(1000,3000);	
 			}
-			foreach (TeddyBear bear in bears){
-				bear.Update(gameTime);
-			}
+
 
 
 			//when left click is released, add mine to list of mines
@@ -137,6 +138,52 @@ namespace ProgrammingAssignment5
 				leftClickStarted = false;
 				mines.Add (new Mine (mineSprite,mouse.X, mouse.Y));
 			}
+			//detect mine and teddy collisions. if collission, make teddy bear inactive, mine inactive
+			// add explosion to list of explosions, remove mine and teddybear
+			foreach (Mine mine in mines) 
+			{
+				foreach (TeddyBear bear in bears) 
+				{
+					if (mine.CollisionRectangle.Intersects (bear.CollisionRectangle)) 
+					{
+						bear.Active = false;
+						mine.Active = false;
+						Explosion explosion = new Explosion (explosionSprite, mine.CollisionRectangle.Center.X, mine.CollisionRectangle.Center.Y);
+						explosions.Add(explosion);
+
+					}
+				}
+			}
+			for (int i = bears.Count - 1; i > -1; i--) 
+			{ 
+				if (!bears[i].Active) 
+				{ 
+					bears.RemoveAt(i); 
+				} 
+			}
+			for (int i = mines.Count - 1; i > -1; i--)
+			{
+				if (!mines[i].Active)
+				{
+					mines.RemoveAt(i);
+				}
+			}
+			for (int i = explosions.Count - 1; i >= 0; i--)
+			{
+				if (!explosions[i].Playing)
+				{
+					explosions.RemoveAt(i);
+				}
+			}
+			foreach (TeddyBear bear in bears){
+				bear.Update(gameTime);
+			}
+
+			foreach (Explosion ex in explosions){
+				ex.Update(gameTime);
+			}
+
+
 			base.Update (gameTime);
 		}
 
@@ -151,12 +198,19 @@ namespace ProgrammingAssignment5
 
 			spriteBatch.Begin ();
 
-			// draw mines
-			foreach (Mine mine in mines) {
-				mine.Draw (spriteBatch);
+			foreach (TeddyBear teddy in bears)
+			{
+				teddy.Draw(spriteBatch);
 			}
-			foreach (TeddyBear bear in bears) {
-				bear.Draw (spriteBatch);
+
+			foreach (Mine mine in mines)
+			{
+				mine.Draw(spriteBatch);
+			}
+
+			foreach (Explosion explosion in explosions)
+			{
+				explosion.Draw(spriteBatch);
 			}
 			spriteBatch.End ();
 
