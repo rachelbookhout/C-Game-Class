@@ -144,6 +144,13 @@ namespace GameProject
 			{
 				explosion.Update(gameTime);
 			}
+			//check for a collision between each teddy bear and each
+			//	projectile in the game. A reasonable approach would be to have a foreach loop over the bears list with a
+			//		nested foreach loop over the projectiles list inside it. This will make sure you check every teddy
+			//			bear/projectile pairing. In the inner loop, check to see if the current projectile is french fries (teddy bears
+			//				don't kill teddy bears!) and the current teddy bear and the current projectile collide by checking if they're
+			//				both active and if their collision rectangles intersect. If they do, set the Active property for the bear to
+			//false and the Active property for the projectile to false.
 
 			// check and resolve collisions between teddy bears
 
