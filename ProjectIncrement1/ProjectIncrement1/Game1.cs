@@ -164,7 +164,20 @@ namespace GameProject
 						}
 						}
 			// clean out inactive teddy bears and add new ones as necessary
-
+			for (int i = bears.Count - 1; i > -1; i--) 
+			{ 
+				if (!bears[i].Active) 
+				{ 
+					bears.RemoveAt(i); 
+				} 
+			}
+			for (int i = projectiles.Count - 1; i > -1; i--)
+			{
+				if (!projectiles[i].Active)
+				{
+					projectiles.RemoveAt(i);
+				}
+			}
 			// clean out inactive projectiles
 
 			// clean out finished explosions
