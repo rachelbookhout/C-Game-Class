@@ -105,6 +105,7 @@ namespace GameProject
 			// load projectile and explosion sprites
 			teddyBearProjectileSprite = Content.Load<Texture2D>("teddybearprojectile") ;
 			frenchFriesSprite = Content.Load<Texture2D>("frenchfries");
+			explosionSpriteStrip = Content.Load<Texture2D> ("explosion");
 			// add initial game objects
 
 			// set initial health and score strings
@@ -159,6 +160,8 @@ namespace GameProject
 					if (bear.CollisionRectangle.Intersects(missle.CollisionRectangle) && missle.Type == ProjectileType.FrenchFries && bear.Active && missle.Active)
 							
 						{	bear.Active = false;
+							Explosion explosion = new Explosion (explosionSpriteStrip, bear.Location.X, bear.Location.Y);
+							explosions.Add (explosion);
 							missle.Active = false;
 						}
 						}
@@ -181,7 +184,13 @@ namespace GameProject
 			// clean out inactive projectiles
 
 			// clean out finished explosions
-
+			for (int i = explosions.Count -1; i> -1; i--)
+			{
+				if (explosions[i].Finished)
+				{
+					explosions.RemoveAt(i);
+				}
+			}
 			base.Update(gameTime);
 		}
 
