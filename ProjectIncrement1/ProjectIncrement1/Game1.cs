@@ -149,7 +149,7 @@ namespace GameProject
 				explosion.Update(gameTime);
 			}
 
-			// check and resolve collisions between teddy bears 
+			//// check and resolve collisions between teddy bears 
 		
 			// check and resolve collisions between burger and teddy bears
 
