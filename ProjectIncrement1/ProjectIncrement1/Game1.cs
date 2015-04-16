@@ -101,8 +101,11 @@ namespace GameProject
 
 			// load sprite font
 			burger = new Burger (Content,"burger",graphics.PreferredBackBufferWidth/2,graphics.PreferredBackBufferHeight * 7/8,null);
-			SpawnBear ();
-			// load projectile and explosion sprites
+			for (int i = 1; i <= GameConstants.MAX_BEARS; i++)
+			{
+				SpawnBear ();
+			}
+				// load projectile and explosion sprites
 			teddyBearProjectileSprite = Content.Load<Texture2D>("teddybearprojectile") ;
 			frenchFriesSprite = Content.Load<Texture2D>("frenchfries");
 			explosionSpriteStrip = Content.Load<Texture2D> ("explosion");
