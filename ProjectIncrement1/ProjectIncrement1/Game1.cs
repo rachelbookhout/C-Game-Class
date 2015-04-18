@@ -157,6 +157,35 @@ namespace GameProject
 					if (bears[i].Active && bears[j].Active)
 					{
 						CollisionResolutionInfo teddyCollisions = CollisionUtils.CheckCollision(gameTime.ElapsedGameTime.Milliseconds, GameConstants.WINDOW_WIDTH, GameConstants.WINDOW_HEIGHT, bears [i].Velocity, bears [i].CollisionRectangle, bears [j].Velocity, bears [j].CollisionRectangle);
+						//If the returned object isn't null, there's a collision you need to resolve. There are two possibilities for each
+						//	of the two teddy bears, though, so let's look at the possibilities for the first teddy bear. If the
+						//	FirstOutOfBounds property of the collision resolution info variable is true, the first teddy bear
+						//	ended up at least partially outside the game window as a result of the collision resolution. In this case, you
+						//	should set the Active property for that teddy bear to false to remove that teddy bear from the game.
+						//		Otherwise, you should set the Velocity and DrawRectangle properties for the first teddy bear to their
+						//			new values using the FirstVelocity and FirstDrawRectangle properties of the returned object.
+						//				You'll of course need to do the same processing for the second teddy bear.
+						if (teddyCollisions != null)
+						{
+							if (teddyCollisions.FirstOutOfBounds == true) 
+							{
+								bears[i].Active = false;
+							}
+							else
+							{
+								bears[i].Velocity = teddyCollisions.FirstVelocity;
+								bears[i].DrawRectangle = teddyCollisions.FirstDrawRectangle;
+							}
+							if (teddyCollisions.SecondOutOfBounds == true) 
+							{
+								bears[j].Active = false;
+							}
+							else
+							{
+								bears[j].Velocity = teddyCollisions.SecondVelocity;
+								bears[j].DrawRectangle = teddyCollisions.SecondDrawRectangle;
+							}
+						}
 					}
 				}
 			}
