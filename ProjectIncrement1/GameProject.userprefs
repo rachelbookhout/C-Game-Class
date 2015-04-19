@@ -1,1 +1,19 @@
-﻿<Properties MonoDevelop.MonoMac.LastXamMacNagTime="4/13/2015 11:15:44 AM" />
+﻿<Properties MonoDevelop.MonoMac.LastXamMacNagTime="4/13/2015 11:15:44 AM" StartupItem="ProjectIncrement1/GameProject.csproj">
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MonoDevelop.Ide.Workbench>
+    <Pads>
+      <Pad Id="ProjectPad">
+        <State expanded="True">
+          <Node name="GameProject" expanded="True">
+            <Node name="Assets" expanded="True" />
+            <Node name="GameConstants.cs" selected="True" />
+          </Node>
+        </State>
+      </Pad>
+    </Pads>
+  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore />
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+</Properties>
