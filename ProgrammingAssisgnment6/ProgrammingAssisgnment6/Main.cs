@@ -6,7 +6,7 @@ using System.Linq;
 using MonoMac.AppKit;
 using MonoMac.Foundation;
 
-namespace ProgrammingAssisgnment6
+namespace ProgrammingAssignment6
 {
 	static class Program
 	{

@@ -23,7 +23,6 @@
     <UseSGen>false</UseSGen>
     <IncludeMonoRuntime>false</IncludeMonoRuntime>
     <EnablePackageSigning>false</EnablePackageSigning>
-    <CodeSigningKey>Mac Developer</CodeSigningKey>
     <EnableCodeSigning>false</EnableCodeSigning>
     <CreatePackage>false</CreatePackage>
   </PropertyGroup>
@@ -81,11 +80,13 @@
     <None Include="packages\MonoGame.Framework.dll" />
     <None Include="packages\Lidgren.Network.dll" />
     <None Include="Info.plist" />
+    <None Include="Assets\Arial24.xnb">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Main.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Game1.cs" />
     <Compile Include="Message.cs" />
     <Compile Include="MenuButton.cs" />
     <Compile Include="GameState.cs" />
@@ -93,6 +94,7 @@
     <Compile Include="Deck.cs" />
     <Compile Include="Rank.cs" />
     <Compile Include="Suit.cs" />
+    <Compile Include="Game1.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <ItemGroup>
@@ -102,21 +104,23 @@
     <Folder Include="Assets\Spades\" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Assets\logo.png">
+    <ImageAsset Include="Assets\logo.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Assets\standbutton.png">
+    </ImageAsset>
+    <ImageAsset Include="Assets\standbutton.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Assets\hitbutton.png">
+    </ImageAsset>
+    <ImageAsset Include="Assets\hitbutton.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Assets\Back.png">
+    </ImageAsset>
+    <ImageAsset Include="Assets\Back.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Assets\quitbutton.png">
+    </ImageAsset>
+    <ImageAsset Include="Assets\quitbutton.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
+    </ImageAsset>
+  </ItemGroup>
+  <ItemGroup>
     <Content Include="Assets\Clubs\Ace.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>

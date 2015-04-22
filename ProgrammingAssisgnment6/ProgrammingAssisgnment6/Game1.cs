@@ -72,6 +72,9 @@ namespace ProgrammingAssignment6
             Content.RootDirectory = "Content";
 
             // set resolution and show mouse
+			graphics.PreferredBackBufferWidth = WINDOW_WIDTH;
+			graphics.PreferredBackBufferHeight = WINDOW_HEIGHT;
+			IsMouseVisible = true;
 
         }
 
@@ -98,7 +101,7 @@ namespace ProgrammingAssignment6
             spriteBatch = new SpriteBatch(GraphicsDevice);
 
             // create and shuffle deck
-
+			Deck deck = new Deck(Content,1,1);
 
             // first player card
 
