@@ -69,7 +69,7 @@ namespace ProgrammingAssignment6
         public Game1()
         {
             graphics = new GraphicsDeviceManager(this);
-            Content.RootDirectory = "Content";
+            Content.RootDirectory = "Assets";
 
             // set resolution and show mouse
 			graphics.PreferredBackBufferWidth = WINDOW_WIDTH;
@@ -149,8 +149,8 @@ namespace ProgrammingAssignment6
         protected override void Update(GameTime gameTime)
         {
             // Allows the game to exit
-            if (GamePad.GetState(PlayerIndex.One).Buttons.Back == ButtonState.Pressed)
-                this.Exit();
+            //if (GamePad.GetState(PlayerIndex.One).Buttons.Back == ButtonState.Pressed)
+              //  this.Exit();
 
             // update menu buttons as appropriate
 
