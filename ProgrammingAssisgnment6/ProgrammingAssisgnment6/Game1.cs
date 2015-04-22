@@ -102,18 +102,32 @@ namespace ProgrammingAssignment6
 
             // create and shuffle deck
 			Deck deck = new Deck(Content,1,1);
-
-            // first player card
-
-
-            // first dealer card
-
-
-            // second player card
+			deck.Shuffle ();
+			// first player card
+			playerHand.Add(deck.TakeTopCard());
+			playerHand[0].FlipOver();
+			playerHand[0].X = HORIZONTAL_CARD_OFFSET;
+			playerHand[0].Y = TOP_CARD_OFFSET;
 
 
-            // second dealer card
 
+			// first dealer card
+			dealerHand.Add(deck.TakeTopCard());
+			dealerHand[0].X = WINDOW_WIDTH - HORIZONTAL_CARD_OFFSET;
+			dealerHand[0].Y = TOP_CARD_OFFSET;
+
+			// second player card
+			playerHand.Add(deck.TakeTopCard());
+			playerHand[1].FlipOver();
+			playerHand[1].X = HORIZONTAL_CARD_OFFSET;
+			playerHand[1].Y = TOP_CARD_OFFSET + VERTICAL_CARD_SPACING;
+
+
+			// second dealer card
+			dealerHand.Add(deck.TakeTopCard());
+			dealerHand[1].FlipOver();
+			dealerHand[1].X = WINDOW_WIDTH - HORIZONTAL_CARD_OFFSET;
+			dealerHand[1].Y = TOP_CARD_OFFSET + VERTICAL_CARD_SPACING;
 
             // load sprite font, create message for player score and add to list
             messageFont = Content.Load<SpriteFont>("Arial24");
