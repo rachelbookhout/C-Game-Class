@@ -186,7 +186,14 @@ namespace ProgrammingAssignment6
             spriteBatch.Begin();
 
             // draw hands
-
+			foreach (Card card in dealerHand)
+			{
+				card.Draw (spriteBatch);
+			}
+			foreach (Card card in playerHand) 
+			{
+				card.Draw (spriteBatch);
+			}
 
             // draw messages
 
