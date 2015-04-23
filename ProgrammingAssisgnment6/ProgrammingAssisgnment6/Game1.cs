@@ -52,6 +52,7 @@ namespace ProgrammingAssignment6
         // menu buttons
         Texture2D quitButtonSprite;
 		Texture2D hitButtonSprite;
+		Texture2D standButtonSprite;
 		List<MenuButton> menuButtons = new List<MenuButton>();
 
         // menu button placement
@@ -142,11 +143,12 @@ namespace ProgrammingAssignment6
 
             // create hit button and add to list
 			hitButtonSprite = Content.Load<Texture2D>("hitbutton");
-			MenuButton hitButton = new MenuButton(hitButtonSprite,new Vector2(graphics.PreferredBackBufferWidth / 2,
-				graphics.PreferredBackBufferHeight / 5),GameState.PlayerHitting);
+			MenuButton hitButton = new MenuButton(hitButtonSprite,new Vector2(HORIZONTAL_MENU_BUTTON_OFFSET, TOP_MENU_BUTTON_OFFSET),GameState.PlayerHitting);
 			menuButtons.Add (hitButton);
             // create stand button and add to list
-
+			standButtonSprite = Content.Load<Texture2D>("standbutton");
+			MenuButton standButton = new MenuButton (standButtonSprite, new Vector2(HORIZONTAL_MENU_BUTTON_OFFSET, VERTICAL_MENU_BUTTON_SPACING + TOP_MENU_BUTTON_OFFSET), GameState.WaitingForDealer);
+			menuButtons.Add (standButton);
         }
 
         /// <summary>
