@@ -51,7 +51,8 @@ namespace ProgrammingAssignment6
 
         // menu buttons
         Texture2D quitButtonSprite;
-        List<MenuButton> menuButtons = new List<MenuButton>();
+		Texture2D hitButtonSprite;
+		List<MenuButton> menuButtons = new List<MenuButton>();
 
         // menu button placement
         const int TOP_MENU_BUTTON_OFFSET = TOP_CARD_OFFSET;
@@ -140,8 +141,10 @@ namespace ProgrammingAssignment6
             quitButtonSprite = Content.Load<Texture2D>("quitbutton");
 
             // create hit button and add to list
-
-
+			hitButtonSprite = Content.Load<Texture2D>("hitbutton");
+			MenuButton hitButton = new MenuButton(hitButtonSprite,new Vector2(graphics.PreferredBackBufferWidth / 2,
+				graphics.PreferredBackBufferHeight / 5),GameState.PlayerHitting);
+			menuButtons.Add (hitButton);
             // create stand button and add to list
 
         }
@@ -196,10 +199,16 @@ namespace ProgrammingAssignment6
 			}
 
             // draw messages
-
+			foreach (Message message in messages) 
+			{
+				message.Draw (spriteBatch);
+			}
 
             // draw menu buttons
-
+			foreach (MenuButton button in menuButtons)
+			{
+				button.Draw (spriteBatch);
+			}
 
             spriteBatch.End();
 
