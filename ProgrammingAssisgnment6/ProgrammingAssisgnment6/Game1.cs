@@ -170,12 +170,39 @@ namespace ProgrammingAssignment6
             // Allows the game to exit
             //if (GamePad.GetState(PlayerIndex.One).Buttons.Back == ButtonState.Pressed)
               //  this.Exit();
-
+			MouseState mouse = Mouse.GetState();
             // update menu buttons as appropriate
-
+			foreach (MenuButton button in menuButtons)
+			{
+				if (currentState == GameState.WaitingForPlayer || currentState == GameState.DisplayingHandResults) 
+				{
+					button.Update (mouse);
+				}
+			}
 
             // game state-specific processing
+			switch (currentState)
+			{
+			case GameState.PlayerHitting:
 
+				break;
+
+			case GameState.WaitingForDealer:
+
+				break;
+
+			case GameState.CheckingHandOver:
+
+				break;
+
+			case GameState.Exiting:
+
+				this.Exit();
+				break;
+			default:
+				break;
+
+			}
 
             base.Update(gameTime);
         }
