@@ -184,15 +184,36 @@ namespace ProgrammingAssignment6
 			switch (currentState)
 			{
 			case GameState.PlayerHitting:
-
+				// player receives a new card
+				//card is flipped over
+				//score is caculated
+				//goes to WaitingForDealer
 				break;
 
 			case GameState.WaitingForDealer:
+				// if(){}
+				break;
+
+			case GameState.DealerHitting:
+				//gives card to dealer
+				//flip card over
+				//transition to CheckingHandOver
+				break;
+			
+			case GameState.CheckingHandOver:
+				//check if player or dealer has busted (gone over MAX_HAND_POINTS)
+				//if one of them won or both stood, go to DisplayingHandResults
+				//if they haven't, return to WaitingforPlayer state
 
 				break;
 
-			case GameState.CheckingHandOver:
-
+			case GameState.DisplayingHandResults:
+				//if someone won,display winner message(messageFont and winnerMessageLocation fields)
+				//flip over the dealer's first card
+				//created a score message for the dealer's score and added it to the list of messages
+				//removed the Hit and Stand menu buttons from the list of menu buttons in the game, 
+				//created a Quit menu button the player can use to exit the game and added it to the list of menu buttons in the game
+				//if player quits, go to GameState.Exiting
 				break;
 
 			case GameState.Exiting:
