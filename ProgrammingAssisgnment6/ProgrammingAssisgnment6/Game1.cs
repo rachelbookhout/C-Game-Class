@@ -103,7 +103,7 @@ namespace ProgrammingAssignment6
             spriteBatch = new SpriteBatch(GraphicsDevice);
 
             // create and shuffle deck
-			Deck deck = new Deck(Content,1,1);
+			deck = new Deck(Content, 10, 10);			
 			deck.Shuffle ();
 			// first player card
 			playerHand.Add(deck.TakeTopCard());
