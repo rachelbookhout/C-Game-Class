@@ -186,17 +186,25 @@ namespace ProgrammingAssignment6
 			case GameState.PlayerHitting:
 				// player receives a new card
 				//card is flipped over
-				//score is caculated
-				//goes to WaitingForDealer
+				playerHand.Add(deck.TakeTopCard());
+				playerHand[playerHand.Count -1].FlipOver();
+				playerHand[playerHand.Count-1].X = HORIZONTAL_CARD_OFFSET;
+				playerHand[playerHand.Count -1].Y = TOP_CARD_OFFSET + VERTICAL_CARD_SPACING*(playerHand.Count-1);
+				messages[0] = new Message(SCORE_MESSAGE_PREFIX + GetBlackjackScore(playerHand).ToString(),
+					messageFont, new Vector2(HORIZONTAL_MESSAGE_OFFSET, SCORE_MESSAGE_TOP_OFFSET));
+				ChangeState(GameState.WaitingForDealer);
+				playerHit = true;
 				break;
 
 			case GameState.WaitingForDealer:
 				if (GetBlackjackScore (dealerHand) < 16) {
 					//goes to DealerHitting
+					ChangeState(GameState.DealerHitting);
 				}
 				else 
 				{
 					//goes to CheckingHandOver
+					ChangeState(GameState.CheckingHandOver);
 
 				}
 				break;
@@ -204,7 +212,12 @@ namespace ProgrammingAssignment6
 			case GameState.DealerHitting:
 				//gives card to dealer
 				//flip card over
+				dealerHand.Add(deck.TakeTopCard());
+				dealerHand[dealerHand.Count -1].FlipOver();
+				dealerHand[dealerHand.Count-1].X = HORIZONTAL_CARD_OFFSET;
+				dealerHand[dealerHand.Count -1].Y = TOP_CARD_OFFSET + VERTICAL_CARD_SPACING*(dealerHand.Count-1);
 				//transition to CheckingHandOver
+				ChangeState(GameState.CheckingHandOver);
 				break;
 			
 			case GameState.CheckingHandOver:
