@@ -54,7 +54,6 @@ namespace ProgrammingAssignment6
 		Texture2D hitButtonSprite;
 		Texture2D standButtonSprite;
 		List<MenuButton> menuButtons = new List<MenuButton>();
-
         // menu button placement
         const int TOP_MENU_BUTTON_OFFSET = TOP_CARD_OFFSET;
         const int QUIT_MENU_BUTTON_OFFSET = WINDOW_HEIGHT - TOP_CARD_OFFSET;
@@ -98,58 +97,58 @@ namespace ProgrammingAssignment6
         /// all of your content.
         /// </summary>
         protected override void LoadContent()
-        {
-            // Create a new SpriteBatch, which can be used to draw textures.
-            spriteBatch = new SpriteBatch(GraphicsDevice);
+		{
+			// Create a new SpriteBatch, which can be used to draw textures.
+			spriteBatch = new SpriteBatch (GraphicsDevice);
 
-            // create and shuffle deck
-			deck = new Deck(Content, 10, 10);			
+			// create and shuffle deck
+			deck = new Deck (Content, 10, 10);			
 			deck.Shuffle ();
 			// first player card
-			playerHand.Add(deck.TakeTopCard());
-			playerHand[0].FlipOver();
-			playerHand[0].X = HORIZONTAL_CARD_OFFSET;
-			playerHand[0].Y = TOP_CARD_OFFSET;
+			playerHand.Add (deck.TakeTopCard ());
+			playerHand [0].FlipOver ();
+			playerHand [0].X = HORIZONTAL_CARD_OFFSET;
+			playerHand [0].Y = TOP_CARD_OFFSET;
 
 
 
 			// first dealer card
-			dealerHand.Add(deck.TakeTopCard());
-			dealerHand[0].X = WINDOW_WIDTH - HORIZONTAL_CARD_OFFSET;
-			dealerHand[0].Y = TOP_CARD_OFFSET;
+			dealerHand.Add (deck.TakeTopCard ());
+			dealerHand [0].X = WINDOW_WIDTH - HORIZONTAL_CARD_OFFSET;
+			dealerHand [0].Y = TOP_CARD_OFFSET;
 
 			// second player card
-			playerHand.Add(deck.TakeTopCard());
-			playerHand[1].FlipOver();
-			playerHand[1].X = HORIZONTAL_CARD_OFFSET;
-			playerHand[1].Y = TOP_CARD_OFFSET + VERTICAL_CARD_SPACING;
+			playerHand.Add (deck.TakeTopCard ());
+			playerHand [1].FlipOver ();
+			playerHand [1].X = HORIZONTAL_CARD_OFFSET;
+			playerHand [1].Y = TOP_CARD_OFFSET + VERTICAL_CARD_SPACING;
 
 
 			// second dealer card
-			dealerHand.Add(deck.TakeTopCard());
-			dealerHand[1].FlipOver();
-			dealerHand[1].X = WINDOW_WIDTH - HORIZONTAL_CARD_OFFSET;
-			dealerHand[1].Y = TOP_CARD_OFFSET + VERTICAL_CARD_SPACING;
+			dealerHand.Add (deck.TakeTopCard ());
+			dealerHand [1].FlipOver ();
+			dealerHand [1].X = WINDOW_WIDTH - HORIZONTAL_CARD_OFFSET;
+			dealerHand [1].Y = TOP_CARD_OFFSET + VERTICAL_CARD_SPACING;
 
-            // load sprite font, create message for player score and add to list
-            messageFont = Content.Load<SpriteFont>("Arial24");
-            playerScoreMessage = new Message(SCORE_MESSAGE_PREFIX + GetBlackjackScore(playerHand).ToString(),
-                messageFont,
-                new Vector2(HORIZONTAL_MESSAGE_OFFSET, SCORE_MESSAGE_TOP_OFFSET));
-            messages.Add(playerScoreMessage);
+			// load sprite font, create message for player score and add to list
+			messageFont = Content.Load<SpriteFont> ("Arial24");
+			playerScoreMessage = new Message (SCORE_MESSAGE_PREFIX + GetBlackjackScore (playerHand).ToString (),
+				messageFont,
+				new Vector2 (HORIZONTAL_MESSAGE_OFFSET, SCORE_MESSAGE_TOP_OFFSET));
+			messages.Add (playerScoreMessage);
 
-            // load quit button sprite for later use
-            quitButtonSprite = Content.Load<Texture2D>("quitbutton");
-
-            // create hit button and add to list
-			hitButtonSprite = Content.Load<Texture2D>("hitbutton");
-			MenuButton hitButton = new MenuButton(hitButtonSprite,new Vector2(HORIZONTAL_MENU_BUTTON_OFFSET, TOP_MENU_BUTTON_OFFSET),GameState.PlayerHitting);
+			// load quit button sprite for later use
+			quitButtonSprite = Content.Load<Texture2D> ("quitbutton");
+			// create hit button and add to list
+			hitButtonSprite = Content.Load<Texture2D> ("hitbutton");
+			MenuButton hitButton = new MenuButton (hitButtonSprite, new Vector2 (HORIZONTAL_MENU_BUTTON_OFFSET, TOP_MENU_BUTTON_OFFSET), GameState.PlayerHitting);
 			menuButtons.Add (hitButton);
-            // create stand button and add to list
-			standButtonSprite = Content.Load<Texture2D>("standbutton");
-			MenuButton standButton = new MenuButton (standButtonSprite, new Vector2(HORIZONTAL_MENU_BUTTON_OFFSET, VERTICAL_MENU_BUTTON_SPACING + TOP_MENU_BUTTON_OFFSET), GameState.WaitingForDealer);
+			// create stand button and add to list
+			standButtonSprite = Content.Load<Texture2D> ("standbutton");
+			MenuButton standButton = new MenuButton (standButtonSprite, new Vector2 (HORIZONTAL_MENU_BUTTON_OFFSET, VERTICAL_MENU_BUTTON_SPACING + TOP_MENU_BUTTON_OFFSET), GameState.WaitingForDealer);
 			menuButtons.Add (standButton);
-        }
+
+		}
 
         /// <summary>
         /// UnloadContent will be called once per game and is the place to unload
@@ -212,22 +211,54 @@ namespace ProgrammingAssignment6
 			case GameState.DealerHitting:
 				//gives card to dealer
 				//flip card over
-				dealerHand.Add(deck.TakeTopCard());
-				dealerHand[dealerHand.Count -1].FlipOver();
-				dealerHand[dealerHand.Count-1].X = HORIZONTAL_CARD_OFFSET;
-				dealerHand[dealerHand.Count -1].Y = TOP_CARD_OFFSET + VERTICAL_CARD_SPACING*(dealerHand.Count-1);
+				dealerHand.Add (deck.TakeTopCard ());
+				dealerHand [dealerHand.Count - 1].FlipOver ();
+				dealerHand [dealerHand.Count - 1].X = HORIZONTAL_CARD_OFFSET;
+				dealerHand [dealerHand.Count - 1].Y = TOP_CARD_OFFSET + VERTICAL_CARD_SPACING * (dealerHand.Count - 1);
+				dealerHit = true;
 				//transition to CheckingHandOver
 				ChangeState(GameState.CheckingHandOver);
 				break;
 			
 			case GameState.CheckingHandOver:
 				//check if player or dealer has busted (gone over MAX_HAND_POINTS)
-				//if one of them won or both stood, go to DisplayingHandResults
-				//if they haven't, return to WaitingforPlayer state
-				//If the hand is over, the game flips over the dealer's first card, creates a score message for the dealer's score
-				//creates an appropriate winner message, hides the Hit and Stand menu buttons
-				//creates a Quit menu button the player can use to exit the game, then transitions to the DisplayingHandResults state. 
-				//If the hand isn't over, the game transitions to the WaitingForPlayer state.
+				if (GetBlackjackScore (playerHand) > MAX_HAND_VALUE || GetBlackjackScore (dealerHand) > MAX_HAND_VALUE || (dealerHit == false && playerHit == false)) 
+				{
+					//If the hand is over, the game flips over the dealer's first card, creates a score message for the dealer's score
+					dealerHand[0].FlipOver();
+					messages.Add(new Message(SCORE_MESSAGE_PREFIX + GetBlackjackScore(dealerHand).ToString(),
+						messageFont, new Vector2(HORIZONTAL_MESSAGE_OFFSET*4, SCORE_MESSAGE_TOP_OFFSET)));
+					//creates an appropriate winner message
+					if (GetBlackjackScore(playerHand) > GetBlackjackScore(dealerHand))
+					{
+						messages.Add(new Message("Player won!", messageFont, winnerMessageLocation));							
+					}
+					else if (GetBlackjackScore(playerHand) < GetBlackjackScore(dealerHand))
+					{
+						messages.Add(new Message("Dealer won!", messageFont, winnerMessageLocation));							
+
+					}
+					else
+					{
+						messages.Add(new Message("You tied!", messageFont, winnerMessageLocation));							
+
+					}
+					// hides the Hit and Stand menu buttons
+					menuButtons.Clear();
+					MenuButton quit_button = new MenuButton (quitButtonSprite, new Vector2 (HORIZONTAL_MENU_BUTTON_OFFSET, VERTICAL_MENU_BUTTON_SPACING + TOP_MENU_BUTTON_OFFSET), GameState.Exiting);
+					menuButtons.Add(quit_button);
+					//creates a Quit menu button the player can use to exit the game, then transitions to the DisplayingHandResults state.
+					ChangeState(GameState.DisplayingHandResults);
+				} 
+				else
+				{
+				 //flip card over, create score message
+				//clear the playerhit, dealerhit booleans
+						playerHit = false;
+						dealerHit = false;
+						//return to WAitingforPlayer
+					ChangeState(GameState.WaitingForPlayer);
+				}
 				break;
 
 			case GameState.DisplayingHandResults:
