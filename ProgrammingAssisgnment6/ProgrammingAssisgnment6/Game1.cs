@@ -221,6 +221,9 @@ namespace ProgrammingAssignment6
 				break;
 			
 			case GameState.CheckingHandOver:
+				//PLAYER DOESN'T STAY AFTER THEY HIT STAY
+				// DEALER CARD ISN'T BEING SHOWN
+
 				//check if player or dealer has busted (gone over MAX_HAND_POINTS)
 				if (GetBlackjackScore (playerHand) > MAX_HAND_VALUE || GetBlackjackScore (dealerHand) > MAX_HAND_VALUE || (dealerHit == false && playerHit == false)) 
 				{
@@ -252,11 +255,11 @@ namespace ProgrammingAssignment6
 				} 
 				else
 				{
-				 //flip card over, create score message
 				//clear the playerhit, dealerhit booleans
+						
 						playerHit = false;
 						dealerHit = false;
-						//return to WAitingforPlayer
+					//return to WAitingforPlayer
 					ChangeState(GameState.WaitingForPlayer);
 				}
 				break;
@@ -289,15 +292,15 @@ namespace ProgrammingAssignment6
             spriteBatch.Begin();
 
             // draw hands
-			foreach (Card card in dealerHand)
-			{
-				card.Draw (spriteBatch);
-			}
+
 			foreach (Card card in playerHand) 
 			{
 				card.Draw (spriteBatch);
 			}
-
+			foreach (Card card in dealerHand)
+			{
+				card.Draw (spriteBatch);
+			}
             // draw messages
 			foreach (Message message in messages) 
 			{
