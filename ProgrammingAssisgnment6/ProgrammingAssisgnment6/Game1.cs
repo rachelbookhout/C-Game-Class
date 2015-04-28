@@ -102,7 +102,7 @@ namespace ProgrammingAssignment6
 			spriteBatch = new SpriteBatch (GraphicsDevice);
 
 			// create and shuffle deck
-			deck = new Deck (Content, 10, 10);			
+			deck = new Deck (Content, 0, 0);			
 			deck.Shuffle ();
 			// first player card
 			playerHand.Add (deck.TakeTopCard ());
@@ -174,15 +174,17 @@ namespace ProgrammingAssignment6
 			foreach (MenuButton button in menuButtons)
 			{
 				if (currentState == GameState.WaitingForPlayer || currentState == GameState.DisplayingHandResults) 
-				{
-					button.Update (mouse);
-				}
+					foreach (MenuButton menuButton in menuButtons)
+					{
+						menuButton.Update(mouse);
+					}
 			}
 
             // game state-specific processing
 			switch (currentState)
 			{
 			case GameState.PlayerHitting:
+				playerHit = true;
 				// player receives a new card
 				//card is flipped over
 				playerHand.Add(deck.TakeTopCard());
@@ -192,7 +194,6 @@ namespace ProgrammingAssignment6
 				messages[0] = new Message(SCORE_MESSAGE_PREFIX + GetBlackjackScore(playerHand).ToString(),
 					messageFont, new Vector2(HORIZONTAL_MESSAGE_OFFSET, SCORE_MESSAGE_TOP_OFFSET));
 				ChangeState(GameState.WaitingForDealer);
-				playerHit = true;
 				break;
 
 			case GameState.WaitingForDealer:
@@ -211,41 +212,50 @@ namespace ProgrammingAssignment6
 			case GameState.DealerHitting:
 				//gives card to dealer
 				//flip card over
-				dealerHand.Add (deck.TakeTopCard ());
-				dealerHand [dealerHand.Count - 1].FlipOver ();
-				dealerHand [dealerHand.Count - 1].X = HORIZONTAL_CARD_OFFSET;
-				dealerHand [dealerHand.Count - 1].Y = TOP_CARD_OFFSET + VERTICAL_CARD_SPACING * (dealerHand.Count - 1);
 				dealerHit = true;
+				dealerHand.Add(deck.TakeTopCard());
+				dealerHand [dealerHand.Count - 1].FlipOver ();
+				dealerHand [dealerHand.Count - 1].X = WINDOW_WIDTH - HORIZONTAL_CARD_OFFSET;;
+				dealerHand [dealerHand.Count - 1].Y = TOP_CARD_OFFSET + VERTICAL_CARD_SPACING * (dealerHand.Count-1);
 				//transition to CheckingHandOver
 				ChangeState(GameState.CheckingHandOver);
 				break;
 			
 			case GameState.CheckingHandOver:
-				//PLAYER DOESN'T STAY AFTER THEY HIT STAY
-				// DEALER CARD ISN'T BEING SHOWN
-
+				int playerScore = GetBlackjackScore(playerHand);
+				int dealerScore = GetBlackjackScore(dealerHand);
 				//check if player or dealer has busted (gone over MAX_HAND_POINTS)
-				if (GetBlackjackScore (playerHand) > MAX_HAND_VALUE || GetBlackjackScore (dealerHand) > MAX_HAND_VALUE || (dealerHit == false && playerHit == false)) 
+				if (playerScore > MAX_HAND_VALUE || dealerScore > MAX_HAND_VALUE || (!dealerHit && !playerHit)) 
 				{
-					//If the hand is over, the game flips over the dealer's first card, creates a score message for the dealer's score
-					dealerHand[0].FlipOver();
-					messages.Add(new Message(SCORE_MESSAGE_PREFIX + GetBlackjackScore(dealerHand).ToString(),
-						messageFont, new Vector2(HORIZONTAL_MESSAGE_OFFSET*4, SCORE_MESSAGE_TOP_OFFSET)));
-					//creates an appropriate winner message
-					if (GetBlackjackScore(playerHand) > GetBlackjackScore(dealerHand))
+					// create and add appropriate winner message
+					string winnerMessageText;
+					if ((playerScore > MAX_HAND_VALUE &&
+						dealerScore > MAX_HAND_VALUE) ||
+						playerScore == dealerScore)
 					{
-						messages.Add(new Message("Player won!", messageFont, winnerMessageLocation));							
+						// both busted or had same score, tie
+						winnerMessageText = "Tie!";
 					}
-					else if (GetBlackjackScore(playerHand) < GetBlackjackScore(dealerHand))
+					else if (dealerScore > MAX_HAND_VALUE ||
+						(!playerHit && !dealerHit && playerScore > dealerScore))
 					{
-						messages.Add(new Message("Dealer won!", messageFont, winnerMessageLocation));							
-
+						// only dealer busted or player had higher score, player won
+						winnerMessageText = "Player Won!";
 					}
 					else
 					{
-						messages.Add(new Message("You tied!", messageFont, winnerMessageLocation));							
-
+						// only player busted or dealer had higher score, dealer won
+						winnerMessageText = "Dealer Won!";
 					}
+					messages.Add(new Message(winnerMessageText,
+						messageFont, winnerMessageLocation));
+
+					// flip dealer's first card and show dealer score
+					dealerHand[0].FlipOver();
+					Message dealerScoreMessage = new Message(SCORE_MESSAGE_PREFIX + GetBlackjackScore(dealerHand).ToString(),
+						messageFont,
+						new Vector2(WINDOW_WIDTH - HORIZONTAL_MESSAGE_OFFSET, SCORE_MESSAGE_TOP_OFFSET));
+					messages.Add(dealerScoreMessage);
 					// hides the Hit and Stand menu buttons
 					menuButtons.Clear();
 					MenuButton quit_button = new MenuButton (quitButtonSprite, new Vector2 (HORIZONTAL_MENU_BUTTON_OFFSET, VERTICAL_MENU_BUTTON_SPACING + TOP_MENU_BUTTON_OFFSET), GameState.Exiting);
