@@ -312,7 +312,11 @@ namespace GameProject
 			// create new bear
 			TeddyBear newBear = new TeddyBear (Content,"teddybear",xlocation, ylocation,vec,null,null);
 			// make sure we don't spawn into a collision
-
+			GetCollisionRectangles();
+			while (!CollisionUtils.IsCollisionFree)
+			{
+				
+			}
 			// add new bear to list
 			bears.Add (newBear);
 		}
