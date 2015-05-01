@@ -182,7 +182,16 @@ namespace GameProject
 				}
 			}
 			// check and resolve collisions between burger and teddy bears
-
+			foreach (TeddyBear bear in bears)
+			{
+				if (bear.Active && bear.CollisionRectangle.Intersects (burger.CollisionRectangle)) 
+				{
+					burger.Health -= GameConstants.BEAR_DAMAGE;
+					bear.Active = false;
+					Explosion explosion = new Explosion (explosionSpriteStrip, bear.Location.X, bear.Location.Y);
+					explosions.Add (explosion);
+				}
+			}
 			// check and resolve collisions between burger and projectiles
 
 			// check and resolve collisions between teddy bears and projectiles
