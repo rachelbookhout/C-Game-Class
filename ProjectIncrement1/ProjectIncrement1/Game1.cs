@@ -193,7 +193,16 @@ namespace GameProject
 				}
 			}
 			// check and resolve collisions between burger and projectiles
+			foreach (Projectile missle in projectiles) 
+			{
+				if (burger.CollisionRectangle.Intersects(missle.CollisionRectangle) && missle.Type == ProjectileType.TeddyBear && missle.Active)
 
+				{	
+					missle.Active = false;
+					burger.Health -= GameConstants.TEDDY_BEAR_PROJECTILE_DAMAGE;
+
+				}
+			}
 			// check and resolve collisions between teddy bears and projectiles
 			foreach (TeddyBear bear in bears)
 			{
