@@ -99,6 +99,13 @@ namespace GameProject
 
 			// load audio content
 
+			//SoundEffect burgerDamage;
+			//SoundEffect burgerDeath;
+		//	SoundEffect burgerShot;
+		//	SoundEffect explosion;
+		//	SoundEffect teddyBounce;
+		//	SoundEffect teddyShot;
+
 			// load sprite font
 			burger = new Burger (Content,"burger",graphics.PreferredBackBufferWidth/2,graphics.PreferredBackBufferHeight * 7/8,null);
 			for (int i = 1; i <= GameConstants.MAX_BEARS; i++)
