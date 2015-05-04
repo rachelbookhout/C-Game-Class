@@ -81,12 +81,6 @@
     <None Include="packages\Lidgren.Network.dll" />
     <None Include="Info.plist" />
     <None Include="Assets\Arial20.xnb" />
-    <None Include="Assets\BurgerDamage.wav" />
-    <None Include="Assets\BurgerDeath.wav" />
-    <None Include="Assets\BurgerShot.wav" />
-    <None Include="Assets\Explosion.wav" />
-    <None Include="Assets\TeddyBounce.wav" />
-    <None Include="Assets\TeddyShot.wav" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Game1.cs" />
@@ -111,4 +105,12 @@
     <BundleResource Include="Assets\teddybearprojectile.png" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <ItemGroup>
+    <Content Include="Assets\BurgerDamage.wav" />
+    <Content Include="Assets\BurgerDeath.wav" />
+    <Content Include="Assets\BurgerShot.wav" />
+    <Content Include="Assets\Explosion.wav" />
+    <Content Include="Assets\TeddyBounce.wav" />
+    <Content Include="Assets\TeddyShot.wav" />
+  </ItemGroup>
 </Project>

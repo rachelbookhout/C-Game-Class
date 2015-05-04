@@ -98,13 +98,12 @@ namespace GameProject
 			spriteBatch = new SpriteBatch(GraphicsDevice);
 
 			// load audio content
-
-			//SoundEffect burgerDamage;
-			//SoundEffect burgerDeath;
-		//	SoundEffect burgerShot;
-		//	SoundEffect explosion;
-		//	SoundEffect teddyBounce;
-		//	SoundEffect teddyShot;
+			burgerDamage = Content.Load<SoundEffect>("BurgerDamage");
+			burgerShot = Content.Load<SoundEffect>("BurgerShot");
+			explosion = Content.Load<SoundEffect>("Explosion");
+			teddyBounce = Content.Load<SoundEffect>("TeddyBounce");
+			teddyShot = Content.Load<SoundEffect>("TeddyShot");
+			burgerDeath = Content.Load<SoundEffect>("BurgerDeath");
 
 			// load sprite font
 			burger = new Burger (Content,"burger",graphics.PreferredBackBufferWidth/2,graphics.PreferredBackBufferHeight * 7/8,null);
