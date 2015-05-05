@@ -193,6 +193,7 @@ namespace GameProject
 				Projectile projectile = new Projectile(ProjectileType.FrenchFries, Game1.GetProjectileSprite(ProjectileType.FrenchFries),
 					locationX, locationY, GameConstants.FRENCH_FRIES_PROJECTILE_SPEED * -1);
 				Game1.AddProjectile(projectile);
+				shootSound.Play ();
 			}
 		}
 

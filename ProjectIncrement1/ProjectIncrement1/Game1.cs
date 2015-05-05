@@ -106,7 +106,7 @@ namespace GameProject
 			burgerDeath = Content.Load<SoundEffect>("BurgerDeath");
 
 			// load sprite font
-			burger = new Burger (Content,"burger",graphics.PreferredBackBufferWidth/2,graphics.PreferredBackBufferHeight * 7/8,null);
+			burger = new Burger (Content,"burger",graphics.PreferredBackBufferWidth/2,graphics.PreferredBackBufferHeight * 7/8,burgerShot);
 			for (int i = 1; i <= GameConstants.MAX_BEARS; i++)
 			{
 				SpawnBear ();
@@ -204,6 +204,7 @@ namespace GameProject
 				if (burger.CollisionRectangle.Intersects(missle.CollisionRectangle) && missle.Type == ProjectileType.TeddyBear && missle.Active)
 
 				{	
+					burgerDamage.Play ();
 					missle.Active = false;
 					burger.Health -= GameConstants.TEDDY_BEAR_PROJECTILE_DAMAGE;
 
@@ -334,7 +335,7 @@ namespace GameProject
 
 			vec = new Vector2 (velocity * (float)Math.Cos(angle), velocity * (float)Math.Sin(angle));
 			// create new bear
-			TeddyBear newBear = new TeddyBear (Content,"teddybear",xlocation, ylocation,vec,null,null);
+			TeddyBear newBear = new TeddyBear (Content,"teddybear",xlocation, ylocation,vec,teddyBounce,teddyShot);
 			// make sure we don't spawn into a collision
 			List<Rectangle> collisionRectangles = new List<Rectangle>(GetCollisionRectangles());
 			while (!CollisionUtils.IsCollisionFree(newBear.CollisionRectangle,collisionRectangles))
