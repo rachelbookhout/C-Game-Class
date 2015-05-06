@@ -57,10 +57,11 @@ namespace GameProject
 		SpriteFont font;
 
 		// sound effects
+
 		SoundEffect burgerDamage;
 		SoundEffect burgerDeath;
 		SoundEffect burgerShot;
-		SoundEffect explosion;
+		SoundEffect explosionSound;
 		SoundEffect teddyBounce;
 		SoundEffect teddyShot;
 
@@ -100,7 +101,7 @@ namespace GameProject
 			// load audio content
 			burgerDamage = Content.Load<SoundEffect>("BurgerDamage");
 			burgerShot = Content.Load<SoundEffect>("BurgerShot");
-			explosion = Content.Load<SoundEffect>("Explosion");
+			explosionSound = Content.Load<SoundEffect>("Explosion");
 			teddyBounce = Content.Load<SoundEffect>("TeddyBounce");
 			teddyShot = Content.Load<SoundEffect>("TeddyShot");
 			burgerDeath = Content.Load<SoundEffect>("BurgerDeath");
@@ -194,7 +195,7 @@ namespace GameProject
 				{
 					burger.Health -= GameConstants.BEAR_DAMAGE;
 					bear.Active = false;
-					Explosion explosion = new Explosion (explosionSpriteStrip, bear.Location.X, bear.Location.Y);
+					Explosion explosion = new Explosion (explosionSpriteStrip, bear.Location.X, bear.Location.Y,explosionSound);
 					explosions.Add (explosion);
 				}
 			}
@@ -218,7 +219,7 @@ namespace GameProject
 					if (bear.CollisionRectangle.Intersects(missle.CollisionRectangle) && missle.Type == ProjectileType.FrenchFries && bear.Active && missle.Active)
 							
 						{	bear.Active = false;
-							Explosion explosion = new Explosion (explosionSpriteStrip, bear.Location.X, bear.Location.Y);
+						Explosion explosion = new Explosion (explosionSpriteStrip, bear.Location.X, bear.Location.Y, explosionSound);
 							explosions.Add (explosion);
 							missle.Active = false;
 						}
