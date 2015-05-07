@@ -110,7 +110,6 @@ namespace GameProject
 
 			// load sprite font
 			burger = new Burger (Content,"burger",graphics.PreferredBackBufferWidth/2,graphics.PreferredBackBufferHeight * 7/8,burgerShot);
-			healthString = GameConstants.HEALTH_PREFIX + burger.Health;
 
 			for (int i = 1; i <= GameConstants.MAX_BEARS; i++)
 			{
@@ -123,6 +122,8 @@ namespace GameProject
 			// add initial game objects
 
 			// set initial health and score strings
+			healthString = GameConstants.HEALTH_PREFIX + burger.Health;
+
 		}
 
 		/// <summary>
@@ -198,6 +199,7 @@ namespace GameProject
 				if (bear.Active && bear.CollisionRectangle.Intersects (burger.CollisionRectangle)) 
 				{
 					burger.Health -= GameConstants.BEAR_DAMAGE;
+					healthString = GameConstants.HEALTH_PREFIX + burger.Health;
 					CheckBurgerKill ();
 					bear.Active = false;
 					Explosion explosion = new Explosion (explosionSpriteStrip, bear.Location.X, bear.Location.Y,explosionSound);
@@ -211,6 +213,7 @@ namespace GameProject
 
 				{	
 					burgerDamage.Play ();
+					healthString = GameConstants.HEALTH_PREFIX + burger.Health;
 					missle.Active = false;
 					burger.Health -= GameConstants.TEDDY_BEAR_PROJECTILE_DAMAGE;
 					CheckBurgerKill ();
@@ -288,7 +291,7 @@ namespace GameProject
 			}
 
 			// draw score and health
-
+			healthString.Draw(SpriteBatch,GameConstants.HEALTH_LOCATION);
 			spriteBatch.End();
 
 			base.Draw(gameTime);
