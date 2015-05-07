@@ -194,6 +194,7 @@ namespace GameProject
 				if (bear.Active && bear.CollisionRectangle.Intersects (burger.CollisionRectangle)) 
 				{
 					burger.Health -= GameConstants.BEAR_DAMAGE;
+					CheckBurgerKill ();
 					bear.Active = false;
 					Explosion explosion = new Explosion (explosionSpriteStrip, bear.Location.X, bear.Location.Y,explosionSound);
 					explosions.Add (explosion);
@@ -208,7 +209,7 @@ namespace GameProject
 					burgerDamage.Play ();
 					missle.Active = false;
 					burger.Health -= GameConstants.TEDDY_BEAR_PROJECTILE_DAMAGE;
-
+					CheckBurgerKill ();
 				}
 			}
 			// check and resolve collisions between teddy bears and projectiles
@@ -388,7 +389,10 @@ namespace GameProject
 		/// </summary>
 		private void CheckBurgerKill()
 		{
-
+			if (burger.Health == 0) 
+			{
+				
+			}
 		}
 
 		#endregion
