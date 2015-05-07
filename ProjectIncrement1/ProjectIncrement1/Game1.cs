@@ -98,6 +98,8 @@ namespace GameProject
 			// Create a new SpriteBatch, which can be used to draw textures.
 			spriteBatch = new SpriteBatch(GraphicsDevice);
 
+			//load font
+			font = Content.Load<SpriteFont>("Arial20");
 			// load audio content
 			burgerDamage = Content.Load<SoundEffect>("BurgerDamage");
 			burgerShot = Content.Load<SoundEffect>("BurgerShot");
@@ -108,6 +110,8 @@ namespace GameProject
 
 			// load sprite font
 			burger = new Burger (Content,"burger",graphics.PreferredBackBufferWidth/2,graphics.PreferredBackBufferHeight * 7/8,burgerShot);
+			healthString = GameConstants.HEALTH_PREFIX + burger.Health;
+
 			for (int i = 1; i <= GameConstants.MAX_BEARS; i++)
 			{
 				SpawnBear ();
@@ -389,9 +393,10 @@ namespace GameProject
 		/// </summary>
 		private void CheckBurgerKill()
 		{
-			if (burger.Health == 0) 
+			if (burger.Health == 0  && !burgerDead ) 
 			{
-				
+				burgerDead = true;
+				burgerDeath.Play ();
 			}
 		}
 

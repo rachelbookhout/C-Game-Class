@@ -80,7 +80,6 @@
     <None Include="packages\MonoGame.Framework.dll" />
     <None Include="packages\Lidgren.Network.dll" />
     <None Include="Info.plist" />
-    <None Include="Assets\Arial20.xnb" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Game1.cs" />
@@ -122,6 +121,9 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="Assets\BurgerDamage.wav">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Assets\Arial20.xnb">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
   </ItemGroup>
