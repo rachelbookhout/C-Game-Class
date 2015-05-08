@@ -123,7 +123,7 @@ namespace GameProject
 
 			// set initial health and score strings
 			healthString = GameConstants.HEALTH_PREFIX + burger.Health;
-
+			scoreString = GameConstants.SCORE_PREFIX + score;
 		}
 
 		/// <summary>
@@ -291,7 +291,7 @@ namespace GameProject
 			}
 
 			// draw score and health
-			healthString.Draw(SpriteBatch,GameConstants.HEALTH_LOCATION);
+			healthString.
 			spriteBatch.End();
 
 			base.Draw(gameTime);
