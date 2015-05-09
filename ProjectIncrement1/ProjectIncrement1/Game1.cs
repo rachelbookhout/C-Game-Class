@@ -55,6 +55,7 @@ namespace GameProject
 
 		// text display support
 		SpriteFont font;
+		Color color = Color.Black;
 
 		// sound effects
 
@@ -227,9 +228,12 @@ namespace GameProject
 					if (bear.CollisionRectangle.Intersects(missle.CollisionRectangle) && missle.Type == ProjectileType.FrenchFries && bear.Active && missle.Active)
 							
 						{	bear.Active = false;
-						Explosion explosion = new Explosion (explosionSpriteStrip, bear.Location.X, bear.Location.Y, explosionSound);
+							Explosion explosion = new Explosion (explosionSpriteStrip, bear.Location.X, bear.Location.Y, explosionSound);
 							explosions.Add (explosion);
 							missle.Active = false;
+							score += GameConstants.BEAR_POINTS;
+							scoreString = GameConstants.SCORE_PREFIX + score;
+
 						}
 						}
 						}
@@ -291,7 +295,8 @@ namespace GameProject
 			}
 
 			// draw score and health
-			healthString.
+			spriteBatch.DrawString( font, healthString, GameConstants.HEALTH_LOCATION,color);
+			spriteBatch.DrawString(font, scoreString, GameConstants.SCORE_LOCATION,color);
 			spriteBatch.End();
 
 			base.Draw(gameTime);
